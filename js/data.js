@@ -13,6 +13,16 @@ const DATA = {
   github: "https://github.com/rendell-11",
   linkedin: "https://www.linkedin.com/in/johnrendell-fuerte",   // TODO: confirm this URL
   resume: "resume.pdf",   // put your PDF next to index.html with this name
+  photo: "images/profile.jpg",   // your portrait in the hero (a larger photo will look sharper)
+
+  // Hero extras
+  status: "Open to Junior Full Stack roles",   // shown in the green "available" badge
+  typed: [                                      // phrases the hero types out after "I build…"
+    "full-stack web systems.",
+    "inventory & asset tools.",
+    "Unity games with C#.",
+    "things that work end to end."
+  ],
 
   stats: [
     { value: "3", label: "Full-stack & game projects shipped" },
@@ -25,6 +35,20 @@ const DATA = {
     "During my internship at J-K Network Services, I independently designed and built the company's internal Inventory & Asset Management System and configured 19 workstations for employee deployment. I enjoy teaching myself new technologies and taking projects from concept all the way to completion."
   ],
 
+  // "I also build the machines" section (from your internship)
+  hardware: {
+    count: "19",
+    label: "desktop workstations built & deployed",
+    where: "J-K Network Services internship",
+    intro: "Not all of my work lives in a code editor. During my internship I also handled the hardware side: getting new workstations from parts to employees' desks, and fixing them when something broke.",
+    steps: [
+      { title: "Assemble", text: "Built desktop workstations for employee use." },
+      { title: "Upgrade", text: "Installed RAM and SSD upgrades." },
+      { title: "Configure", text: "Reformatted SSDs and installed the software each machine needed." },
+      { title: "Deploy & support", text: "Handled cable management, then diagnosed hardware, software, and OS issues after hand-off." }
+    ]
+  },
+
   skills: {
     "Web Development": ["PHP", "MySQL", "JavaScript", "ReactJS", "HTML", "CSS", "XAMPP", "VS Code"],
     "Programming & Game Dev": ["C#", "C++", "Python", "Unity", "Blender"],
@@ -34,7 +58,9 @@ const DATA = {
   /* ---------- TOP PROJECTS ----------
      Each project gets its own page at  #/projects/<slug>
      - slug:     short id used in the link (lowercase, dashes)
-     - short:    short name shown on the cover until you add a screenshot
+     - short:    short name for the project
+     - color / color2: the project's accent colors (cards, glow, project page)
+     - mock:     illustration shown until you add a screenshot: "dashboard", "store", or "game"
      - summary:  1–2 sentences shown on the card
      - image:    cover screenshot, e.g. "screenshots/inventory/cover.png" (leave "" for a placeholder)
      - gallery:  extra screenshots shown on the project page, each { src, caption }
@@ -45,6 +71,7 @@ const DATA = {
   projects: [
     {
       slug: "inventory-system",
+      color: "#0f766e", color2: "#14b8a6", mock: "dashboard",
       short: "Inventory",
       tag: "Internship · Production",
       title: "Inventory & IT Asset Management System",
@@ -73,6 +100,7 @@ const DATA = {
     },
     {
       slug: "mathplustbs",
+      color: "#e8590c", color2: "#7c3aed", mock: "game",
       short: "MathPlusTBS",
       tag: "Academic · Game",
       title: "MathPlusTBS — Unity Educational Game",
@@ -98,6 +126,7 @@ const DATA = {
     },
     {
       slug: "ecommerce",
+      color: "#b45309", color2: "#e8590c", mock: "store",
       short: "E-Commerce",
       tag: "Academic · Web",
       title: "Web-Based E-Commerce System",

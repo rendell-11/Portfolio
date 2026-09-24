@@ -7,6 +7,8 @@ Personal portfolio site for **John Rendell L. Fuerte**, Junior Full Stack Develo
 ## Features
 
 - Top Projects section with a dedicated page for each project (overview, features, tech stack, screenshot gallery)
+- Animated hero with an interactive particle network, typing text, and a live-typing code window
+- 3D tilting project cards, scroll-reveal animations, and count-up stats
 - Smooth animated transitions between the project list and project pages (View Transitions API, with a fallback)
 - Résumé section with a downloadable PDF
 - Light / dark mode that remembers the visitor's choice
@@ -29,8 +31,10 @@ Personal portfolio site for **John Rendell L. Fuerte**, Junior Full Stack Develo
 │   ├── render.js       Builds the home and project pages from data.js
 │   ├── router.js       Switches between pages using #/projects/<slug> links
 │   ├── lightbox.js     Enlarged screenshot viewer
+│   ├── effects.js      Particles, typing text, card tilt, scroll reveal
 │   ├── theme.js        Light/dark mode toggle
 │   └── main.js         Starts the site
+├── images/             Profile photo
 └── screenshots/        Project screenshots referenced from data.js
 ```
 
@@ -41,7 +45,9 @@ All text lives in [`js/data.js`](js/data.js). To add a project, add an entry to 
 ```js
 {
   slug: "my-project",            // used in the link: #/projects/my-project
-  short: "MyProject",            // shown on the cover until a screenshot is added
+  short: "MyProject",
+  color: "#6d5dfc", color2: "#22c7ee",   // accent colors
+  mock: "dashboard",             // cover illustration until a screenshot is added: dashboard | store | game
   tag: "Personal · Web",
   title: "My Project",
   summary: "One or two sentences for the card.",

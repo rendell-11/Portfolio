@@ -1,65 +1,133 @@
-/* Components shared by every page — nav, buttons, chips, project covers, screenshot lightbox */
+/* Components shared by every page — nav, scroll progress, buttons, chips, project covers & mockups, lightbox */
 
 /* Nav */
 nav.top {
-  position: sticky; top: 0; z-index: 10;
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 20;
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
   border-bottom: 1px solid var(--border);
   view-transition-name: topnav;   /* stays put while pages change */
 }
-nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-.logo { font-family: "JetBrains Mono", monospace; font-weight: 500; color: var(--text); }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--mono); font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 2px; }
+.logo b { color: var(--accent); font-weight: 600; }
 .logo:hover { text-decoration: none; }
-.nav-links { display: flex; gap: 22px; align-items: center; }
-.nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; }
-.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links { display: flex; gap: 6px; align-items: center; }
+.nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; padding: 7px 12px; border-radius: 999px; transition: color .2s, background .2s; }
+.nav-links a:hover { color: var(--text); background: var(--accent-soft); text-decoration: none; }
 .theme-btn {
-  background: none; border: 1px solid var(--border); color: var(--text);
-  width: 34px; height: 34px; border-radius: 8px; cursor: pointer; font-size: 15px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text); margin-left: 6px;
+  width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 15px;
+  transition: transform .4s var(--ease), border-color .2s;
 }
-@media (max-width: 480px) { .nav-links { gap: 14px; } .nav-links a { font-size: 13px; } }
+.theme-btn:hover { transform: rotate(180deg); border-color: var(--accent); }
+@media (max-width: 480px) { .nav-links { gap: 0; } .nav-links a { font-size: 13px; padding: 6px 8px; } }
 
-/* Buttons, chips, shared bits */
-.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 14px; color: var(--accent); margin-bottom: 14px; }
-.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+/* Reading progress bar under the nav */
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
+  background: var(--accent-2); transform-origin: left; transform: scaleX(var(--p, 0));
+}
+
+/* Buttons */
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .btn {
+  position: relative; overflow: hidden;
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 15px;
+  padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 15px;
   border: 1px solid var(--border); color: var(--text); background: var(--surface);
-  transition: border-color .15s ease, transform .15s ease;
+  transition: border-color .2s ease, transform .2s var(--ease), box-shadow .2s ease;
 }
-.btn:hover { text-decoration: none; border-color: var(--accent); }
-.btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font-size: 14px; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); }
-.chip.tech { background: var(--accent-soft); border-color: transparent; color: var(--accent); font-size: 12.5px; padding: 4px 10px; font-weight: 500; }
-.tag { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--accent); }
+.btn:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-2px); }
+.btn.primary {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.btn.primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+:root[data-theme="dark"] .btn.primary { color: #0b0b09; box-shadow: 4px 4px 0 var(--accent-2); }
+:root[data-theme="dark"] .btn.primary:hover { box-shadow: 6px 6px 0 var(--accent-2); }
+.btn.primary::after {   /* light sweep */
+  content: ""; position: absolute; inset: 0; transform: translateX(-120%);
+  background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+  transition: transform .7s var(--ease);
+}
+.btn.primary:hover::after { transform: translateX(120%); }
 
-/* Project covers (image, or a placeholder until a screenshot is added) */
+/* Chips & tags */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 13.5px; padding: 6px 13px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--border);
+  transition: border-color .2s, transform .2s var(--ease), color .2s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.chip.tech { background: color-mix(in srgb, var(--pc, var(--accent)) 12%, transparent); border-color: transparent; color: var(--pc, var(--accent)); font-size: 12.5px; padding: 4px 11px; font-weight: 600; }
+.tag { font-family: var(--mono); font-size: 12px; color: var(--pc, var(--accent)); letter-spacing: .02em; }
+.eyebrow { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: .04em; }
+
+/* Project covers: a screenshot, or an illustrated mockup until one is added.
+   --pc is the project's accent color (set per project in data.js). */
 .cover {
-  width: 100%; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden;
-  border: 1px solid var(--border); background: var(--accent-soft);
+  position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 15% 10%, color-mix(in srgb, var(--pc) 45%, transparent), transparent 55%),
+    radial-gradient(circle at 90% 100%, color-mix(in srgb, var(--pc2, var(--pc)) 40%, transparent), transparent 55%),
+    var(--bg-2);
 }
 .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cover.placeholder {
-  display: grid; place-items: center; container-type: inline-size;
-  background:
-    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
-    radial-gradient(circle at 85% 90%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 50%),
-    var(--accent-soft);
-}
-.cover.placeholder span {
-  font-family: "JetBrains Mono", monospace; font-weight: 500; color: var(--accent);
-  font-size: clamp(18px, 8cqi, 48px); letter-spacing: -0.02em; opacity: .85; white-space: nowrap;
-}
+
+.mock { position: absolute; inset: 11% 9% -6%; border-radius: 10px 10px 0 0; background: var(--surface-solid);
+  box-shadow: 0 20px 50px -10px color-mix(in srgb, var(--pc) 45%, transparent); overflow: hidden;
+  transition: transform .6s var(--ease); }
+.mock .bar { height: 9%; min-height: 12px; display: flex; align-items: center; gap: 4px; padding: 0 3%; border-bottom: 1px solid var(--border); }
+.mock .bar i { width: 7px; height: 7px; border-radius: 50%; background: #ff5f57; }
+.mock .bar i:nth-child(2) { background: #febc2e; } .mock .bar i:nth-child(3) { background: #28c840; }
+.mock .bar u { flex: 0 1 40%; height: 45%; border-radius: 99px; background: var(--bg-2); margin-left: 6%; }
+.mock .ln { display: block; height: 7px; border-radius: 99px; background: var(--bg-2); }
+.mock .ln.c { background: color-mix(in srgb, var(--pc) 55%, transparent); }
+
+/* Dashboard mockup (inventory system) */
+.m-dash { display: grid; grid-template-columns: 22% 1fr; height: 91%; }
+.m-dash .side { background: color-mix(in srgb, var(--pc) 10%, var(--surface-solid)); padding: 12% 12%; display: grid; align-content: start; gap: 9px; }
+.m-dash .main { padding: 5% 6%; display: grid; align-content: start; gap: 8px; }
+.m-dash .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 4px; }
+.m-dash .tiles span { height: 30px; border-radius: 6px; background: var(--bg-2); position: relative; overflow: hidden; }
+.m-dash .tiles span::after { content: ""; position: absolute; left: 12%; bottom: 22%; width: 40%; height: 6px; border-radius: 9px; background: var(--pc); }
+.m-dash .row { display: grid; grid-template-columns: 12px 1.4fr 1fr .7fr; gap: 8px; align-items: center; padding: 3px 0; border-bottom: 1px solid var(--border); }
+.m-dash .row b { width: 10px; height: 10px; border-radius: 3px; background: color-mix(in srgb, var(--pc) 40%, transparent); }
+.m-dash .row .pill { height: 9px; border-radius: 99px; background: color-mix(in srgb, #28c840 45%, transparent); }
+.m-dash .row:nth-child(odd) .pill { background: color-mix(in srgb, #febc2e 55%, transparent); }
+
+/* Store mockup (e-commerce) */
+.m-store { padding: 5% 6%; height: 91%; display: grid; grid-template-rows: auto 1fr; gap: 9%; }
+.m-store .hdr { display: flex; justify-content: space-between; align-items: center; }
+.m-store .hdr .ln { width: 22%; } .m-store .hdr em { width: 16%; height: 14px; border-radius: 6px; background: var(--pc); }
+.m-store .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.m-store .prod { display: grid; gap: 5px; align-content: start; }
+.m-store .prod span { aspect-ratio: 4 / 3; border-radius: 6px; background: linear-gradient(140deg, color-mix(in srgb, var(--pc) 35%, transparent), color-mix(in srgb, var(--pc2) 30%, transparent)); }
+.m-store .prod .ln:last-child { width: 50%; background: color-mix(in srgb, var(--pc) 55%, transparent); }
+
+/* Game mockup (Unity game) */
+.m-game { position: absolute; inset: 0; overflow: hidden;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--pc2) 55%, #1a1040) 0%, color-mix(in srgb, var(--pc) 60%, #1a1040) 62%, #120a2e 62%); }
+.m-game .sun { position: absolute; left: 50%; top: 22%; width: 26%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%;
+  background: linear-gradient(180deg, #ffd36b, #ff5ca8); box-shadow: 0 0 60px #ff5ca8aa; }
+.m-game .floor { position: absolute; left: -50%; right: -50%; bottom: 0; height: 38%; transform-origin: top; transform: perspective(160px) rotateX(55deg);
+  background-image: linear-gradient(color-mix(in srgb, var(--pc2) 80%, #fff) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--pc2) 80%, #fff) 1px, transparent 1px);
+  background-size: 28px 28px; animation: floor-run 1.6s linear infinite; opacity: .7; }
+.m-game .sym { position: absolute; font-family: var(--display); font-weight: 700; color: #fff; text-shadow: 0 0 18px rgba(255,255,255,.7);
+  font-size: clamp(16px, 5cqi, 34px); animation: bob 3s ease-in-out infinite; }
+.m-game .q { position: absolute; left: 50%; top: 8%; transform: translateX(-50%); padding: 4px 12px; border-radius: 8px;
+  background: rgba(0,0,0,.35); color: #fff; font-family: var(--mono); font-size: clamp(10px, 3cqi, 16px); backdrop-filter: blur(4px); white-space: nowrap; }
+.cover { container-type: inline-size; }
 
 /* Screenshot lightbox */
 #lightbox {
   border: none; padding: 0; background: transparent; max-width: min(1200px, 94vw); max-height: 92vh;
   margin: auto; color: #fff; overflow: visible;
 }
-#lightbox::backdrop { background: rgba(8, 10, 14, .88); backdrop-filter: blur(4px); }
+#lightbox::backdrop { background: rgba(8, 8, 24, .88); backdrop-filter: blur(6px); }
 #lightbox[open] { animation: lb-in .3s var(--ease); }
 #lightbox img { max-width: 100%; max-height: 80vh; display: block; margin: 0 auto; border-radius: 12px; }
 #lightbox p { text-align: center; margin-top: 12px; font-size: 14px; color: #c9cdd6; }
@@ -70,4 +138,14 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 .lb-btn:hover { background: rgba(255,255,255,.18); }
 .lb-prev { left: 16px; } .lb-next { right: 16px; }
 .lb-close { top: 16px; right: 16px; transform: none; }
-@keyframes lb-in { from { opacity: 0; transform: scale(.96); } }
+
+/* Toast (e.g. "Email copied") */
+.toast {
+  position: fixed; left: 50%; bottom: 28px; z-index: 50; transform: translate(-50%, 20px); opacity: 0;
+  background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 14px; font-weight: 600;
+  transition: opacity .3s, transform .3s var(--ease); pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Dark mode: brighten project-colored text so darker project colors stay readable */
+:root[data-theme="dark"] :is(.chip.tech, .tag, .card .more) { color: color-mix(in srgb, var(--pc, var(--accent)) 55%, #fff); }

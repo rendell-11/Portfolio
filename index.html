@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
@@ -21,13 +21,14 @@
 <script src="js/render.js" defer></script>
 <script src="js/router.js" defer></script>
 <script src="js/lightbox.js" defer></script>
+<script src="js/effects.js" defer></script>
 <script src="js/main.js" defer></script>
 </head>
 <body>
 
 <nav class="top">
   <div class="wrap">
-    <a href="#" class="logo">&lt;rendell /&gt;</a>
+    <a href="#" class="logo">&lt;<b>rendell</b> /&gt;</a>
     <div class="nav-links">
       <a href="#projects">Projects</a>
       <a href="#resume">Résumé</a>
@@ -35,6 +36,7 @@
       <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">◐</button>
     </div>
   </div>
+  <div class="progress" id="progress"></div>
 </nav>
 
 <!-- Page content (home or a project page) is rendered here by js/render.js -->

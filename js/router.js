@@ -26,6 +26,7 @@ function route() {
   const update = () => {
     current = next;
     project ? renderProject(project) : renderHome();
+    mountEffects();
     const target = !project && !returning && location.hash.length > 1 && document.getElementById(location.hash.slice(1));
     if (target) target.scrollIntoView({ behavior: "instant" });
     else scrollTo({ top: project ? 0 : homeScroll, behavior: "instant" });

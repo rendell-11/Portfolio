@@ -5,5 +5,6 @@
 document.getElementById("footer").textContent =
   `© ${new Date().getFullYear()} ${DATA.name}. Built with HTML, CSS & JS · Hosted on GitHub Pages.`;
 
+initGlobalEffects();
 initLightbox();
 initRouter();
