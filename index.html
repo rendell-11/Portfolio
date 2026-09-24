@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Rendell Fuerte — Junior Full Stack Developer</title>
+<meta name="description" content="Portfolio of John Rendell L. Fuerte, BS Information Technology graduate and Junior Full Stack Developer based in Quezon City, Philippines.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/project.css">
+<link rel="stylesheet" href="css/animations.css">
+
+<script src="js/theme.js"></script>
+<script src="js/data.js" defer></script>
+<script src="js/render.js" defer></script>
+<script src="js/router.js" defer></script>
+<script src="js/lightbox.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a href="#" class="logo">&lt;rendell /&gt;</a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#resume">Résumé</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Page content (home or a project page) is rendered here by js/render.js -->
+<main class="wrap" id="app"></main>
+
+<footer>
+  <div class="wrap" id="footer"></div>
+</footer>
+
+<dialog id="lightbox" aria-label="Screenshot viewer">
+  <button class="lb-btn lb-close" data-lb="close" aria-label="Close">✕</button>
+  <button class="lb-btn lb-prev" data-lb="prev" aria-label="Previous screenshot">‹</button>
+  <button class="lb-btn lb-next" data-lb="next" aria-label="Next screenshot">›</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<noscript><p class="wrap">This portfolio needs JavaScript to display. You can still <a href="resume.pdf">download my résumé</a>.</p></noscript>
+
+</body>
+</html>
