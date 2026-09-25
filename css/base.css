@@ -17,7 +17,7 @@
   --shadow: 0 1px 0 rgba(40, 34, 20, .06), 0 8px 24px -12px rgba(40, 34, 20, .18);
   --shadow-lg: 0 2px 0 rgba(40, 34, 20, .06), 0 24px 48px -20px rgba(40, 34, 20, .3);
   --ease: cubic-bezier(.2, .8, .2, 1);
-  --display: "Fraunces", Georgia, serif;
+  --display: "Manrope", "Inter", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, monospace;
 }
 :root[data-theme="dark"] {
@@ -57,7 +57,7 @@ h1, h2, h3, h4 { font-family: var(--display); }
 @media (max-width: 480px) { .wrap { padding: 0 16px; } }
 
 /* Highlighted word: accent color with a marker-style underline */
-.hl { color: var(--accent); font-style: italic; position: relative; white-space: nowrap; isolation: isolate; }
+.hl { color: var(--accent); position: relative; white-space: nowrap; isolation: isolate; }
 .hl::after {
   content: ""; position: absolute; left: -2%; right: -2%; bottom: .06em; height: .22em; z-index: -1;
   background: color-mix(in srgb, var(--accent-2) 45%, transparent); border-radius: 3px; transform: skewX(-12deg) rotate(-1deg);

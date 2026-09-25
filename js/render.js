@@ -5,7 +5,11 @@
 
 const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const ext = href => `href="${esc(href)}" target="_blank" rel="noopener"`;
+// External link attributes. Adds "https://" if it was left off, so "www.site.com" isn't treated as a page on this site.
+const url = href => /^(www\.|[\w-]+\.(com|net|org|io|dev|me|ph|co)(\/|$))/i.test(href) ? `https://${href}` : href;
+const ext = href => `href="${esc(url(href))}" target="_blank" rel="noopener"`;
+// Opens a new Gmail message addressed to you (instead of the visitor's default mail app)
+const gmail = to => `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}`;
 const colors = p => `--pc: ${esc(p.color || "#6d5dfc")}; --pc2: ${esc(p.color2 || p.color || "#22c7ee")};`;
 const repeat = (n, html) => Array.from({ length: n }, (_, i) => html(i)).join("");
 
@@ -37,12 +41,49 @@ const MOCKS = {
     </div>`
 };
 
+/* Project logos rebuilt as text + shapes, so they stay sharp at every size */
+const WORDMARKS = {
+  itadmin: p => `
+    <div class="wm wm-it">
+      <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span><b class="name">IT Admin</b><small class="sub">Inventory &amp; Asset Management</small></span>
+    </div>`,
+  ggez: p => `
+    <div class="wm wm-gg">
+      <span class="box"><b>GG-EZ</b></span>
+      <span class="side"><b>ESPORTS</b><small>GAME GEAR STORE</small></span>
+    </div>`,
+  mathplus: p => `
+    <div class="wm wm-mp">
+      ${p.logo ? `<img src="${esc(p.logo)}" alt="" aria-hidden="true">` : ""}
+      <span><b class="name">MathPlus</b><small class="tag">TBS · Unity game</small></span>
+    </div>`
+};
+
 // The cover carries a per-project view-transition-name, so the card's cover
 // and the project page's cover are treated as the same element and morph.
-const cover = (p, cls = "") => `
+const cover = (p, cls = "") => WORDMARKS[p.wordmark] ? `
+  <div class="cover logo-cover ${cls}" style="view-transition-name: cover-${p.slug}; ${colors(p)} --lbg: ${esc(p.logoBg || "#111")};"
+    role="img" aria-label="${esc(p.title)} logo">
+    ${WORDMARKS[p.wordmark](p)}
+  </div>` : p.logo ? `
+  <div class="cover logo-cover ${cls}" style="view-transition-name: cover-${p.slug}; ${colors(p)} --lbg: ${esc(p.logoBg || "#111")};">
+    <img src="${esc(p.logo)}" alt="${esc(p.title)} logo" onload="sizeLogo(this)">
+  </div>` : `
   <div class="cover ${cls}" style="view-transition-name: cover-${p.slug}; ${colors(p)}">
-    ${p.image ? `<img src="${esc(p.image)}" alt="Screenshot of ${esc(p.title)}">` : (MOCKS[p.mock] || MOCKS.dashboard)()}
+    ${p.image ? `<img class="bg" src="${esc(p.image)}" alt="" aria-hidden="true">
+      <img class="fg" src="${esc(p.image)}" alt="Screenshot of ${esc(p.title)}" onload="markSmallCover(this)">` : (MOCKS[p.mock] || MOCKS.dashboard)()}
   </div>`;
+
+// Logos are shown at up to 2.4x their real size so small logo files stay crisp
+function sizeLogo(img) {
+  img.style.maxWidth = `min(64%, ${Math.round(img.naturalWidth * 2.4)}px)`;
+}
+
+// Low-resolution screenshots aren't stretched: they're shown at a sharp size over a blurred copy of themselves
+function markSmallCover(img) {
+  if (img.naturalWidth < 900) img.closest(".cover").classList.add("small");
+}
 
 const sectionTitle = (num, title) => `<div class="section-title" data-reveal><span class="num">${num}</span><h3>${title}</h3></div>`;
 
@@ -85,7 +126,6 @@ function renderHome() {
 
     <figure class="portrait" data-in style="--d:.4">
       <div class="photo"><img src="${esc(DATA.photo)}" alt="Portrait of ${esc(DATA.name)}"></div>
-      <span class="sticker">BSIT '26</span>
       <dl class="facts">
         <div><dt>based in</dt><dd>${esc(DATA.location.split(",")[0])}, PH</dd></div>
         <div><dt>studied at</dt><dd>TIP Quezon City</dd></div>
@@ -179,7 +219,7 @@ function renderHome() {
       <h3>Hiring a junior <span class="hl">developer?</span></h3>
       <p>I'm looking for my first full-time role in web development or IT. If you think I'd be a good fit, or just have a question about my work, send me an email.</p>
       <div class="cta">
-        <a class="btn light" href="mailto:${esc(DATA.email)}">Say hello ✉</a>
+        <a class="btn light" ${ext(gmail(DATA.email))}>Say hello ✉</a>
         <button class="btn" type="button" data-copy="${esc(DATA.email)}">Copy email</button>
         <a class="btn" ${ext(DATA.linkedin)}>LinkedIn ↗</a>
         <a class="btn" ${ext(DATA.github)}>GitHub ↗</a>

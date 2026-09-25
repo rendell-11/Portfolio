@@ -75,7 +75,12 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
     radial-gradient(circle at 90% 100%, color-mix(in srgb, var(--pc2, var(--pc)) 40%, transparent), transparent 55%),
     var(--bg-2);
 }
-.cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; }
+.cover img.bg { display: none; }
+/* Small screenshots: blurred fill behind, the real image centered at a size that stays sharp */
+.cover.small { display: grid; place-items: center; }
+.cover.small img.bg { display: block; position: absolute; inset: 0; filter: blur(22px) saturate(1.2); transform: scale(1.2); opacity: .85; }
+.cover.small img.fg { position: relative; width: min(92%, 560px); height: auto; max-height: 92%; object-fit: contain; border-radius: 8px; box-shadow: 0 12px 30px -8px rgba(0,0,0,.45); }
 
 .mock { position: absolute; inset: 11% 9% -6%; border-radius: 10px 10px 0 0; background: var(--surface-solid);
   box-shadow: 0 20px 50px -10px color-mix(in srgb, var(--pc) 45%, transparent); overflow: hidden;
@@ -149,3 +154,57 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 
 /* Dark mode: brighten project-colored text so darker project colors stay readable */
 :root[data-theme="dark"] :is(.chip.tech, .tag, .card .more) { color: color-mix(in srgb, var(--pc, var(--accent)) 55%, #fff); }
+
+/* Logo covers: the project's logo centered on its own brand background */
+.cover.logo-cover {
+  display: grid; place-items: center;
+  background:
+    radial-gradient(ellipse 55% 65% at 50% 50%, color-mix(in srgb, var(--pc) 32%, transparent), transparent 72%),
+    var(--lbg);
+  border-color: transparent;
+}
+.cover.logo-cover::before {   /* faint grid texture */
+  content: ""; position: absolute; inset: 0; opacity: .5;
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 32px 32px; mask-image: radial-gradient(ellipse at center, #000 25%, transparent 80%);
+}
+.cover.logo-cover img { position: relative; width: 100%; height: auto; max-width: 64%; max-height: 62%; object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,.45));
+  transition: transform .6s var(--ease); }
+.card:hover .cover.logo-cover img { transform: scale(1.06); }
+
+/* ---------- Text-based project logos (sizes scale with the cover via cqi units) ---------- */
+.wm { position: relative; display: flex; align-items: center; gap: 3cqi; color: #fff; text-align: left; transition: transform .6s var(--ease); }
+.card:hover .wm { transform: scale(1.05); }
+.wm b, .wm small { display: block; }
+
+/* IT Admin */
+.wm-it .mark { display: grid; grid-template-columns: 1fr 1fr; gap: .9cqi; width: clamp(28px, 8.5cqi, 72px); flex: none; }
+.wm-it .mark i { aspect-ratio: 1; border-radius: 22%; }
+.wm-it .mark i:nth-child(1) { background: #f97316; } .wm-it .mark i:nth-child(2) { background: #3b82f6; }
+.wm-it .mark i:nth-child(3) { background: #22c55e; } .wm-it .mark i:nth-child(4) { background: #ec4899; }
+.wm-it .name { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 9cqi, 78px); line-height: 1; letter-spacing: -0.045em; }
+.wm-it .sub { font-family: var(--mono); font-size: clamp(8px, 1.9cqi, 15px); letter-spacing: .16em; text-transform: uppercase; color: #8fb3d9; margin-top: 1.4cqi; }
+
+/* GG-EZ */
+.wm-gg { gap: 3.4cqi; }
+.wm-gg .box {
+  display: block; padding: 1.3cqi 3.2cqi; transform: skewX(-14deg); border-radius: .9cqi;
+  background: linear-gradient(180deg, #ff3b4a, #b00018);
+  box-shadow: 0 0 5cqi rgba(255, 40, 60, .5), inset 0 0 0 .35cqi rgba(255, 255, 255, .18);
+}
+.wm-gg .box b { font-family: var(--display); font-style: italic; font-weight: 800; font-size: clamp(26px, 9.5cqi, 84px); line-height: 1; letter-spacing: -0.03em;
+  text-shadow: 0 .4cqi 0 rgba(90, 0, 10, .6); }
+.wm-gg .side b { font-family: var(--display); font-weight: 800; font-size: clamp(12px, 3.6cqi, 30px); letter-spacing: .12em; line-height: 1.1; }
+.wm-gg .side small { font-size: clamp(8px, 2.2cqi, 18px); letter-spacing: .1em; color: #b9bcc6; margin-top: .6cqi; font-weight: 500; }
+
+/* MathPlus */
+/* never wider than the emblem file (152px), so it stays sharp */
+.cover.logo-cover .wm-mp img { width: clamp(56px, 19cqi, 140px); max-width: none; max-height: none; height: auto; flex: none; filter: drop-shadow(0 1cqi 2.4cqi rgba(0, 0, 0, .5)); }
+.wm-mp .name {
+  font-family: var(--display); font-weight: 800; font-size: clamp(26px, 9cqi, 78px); line-height: 1; letter-spacing: -0.035em;
+  background: linear-gradient(180deg, #ffe08a 10%, #f5a623 90%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 .45cqi 0 #6b3510);
+}
+.wm-mp .tag { display: inline-block !important; margin-top: 1.6cqi; padding: .5cqi 1.6cqi; border-radius: 99px; background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .18); font-family: var(--mono); font-size: clamp(8px, 1.9cqi, 15px); letter-spacing: .1em; color: #e8dcc8; }

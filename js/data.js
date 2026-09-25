@@ -4,14 +4,14 @@
    ============================================================ */
 
 const DATA = {
-  name: "John Rendell L. Fuerte",
+  name: "John Rendell L. Fuerte", 
   short: "Rendell",
   role: "Junior Full Stack Developer",
-  tagline: "BS Information Technology graduate who builds full-stack web systems from database to UI — and keeps the machines running them in shape.",
+  tagline: "BS Information Technology graduate with experience in full-stack web development, database management, UI/UX design, and IT support — creating practical digital solutions from backend logic to user interface.",
   location: "Quezon City, Philippines",
   email: "fuertejohnrendell@gmail.com",
   github: "https://github.com/rendell-11",
-  linkedin: "https://www.linkedin.com/in/johnrendell-fuerte",   // TODO: confirm this URL
+  linkedin: "www.linkedin.com/in/john-rendell-fuerte-5396b723b",   // TODO: confirm this URL
   resume: "resume.pdf",   // put your PDF next to index.html with this name
   photo: "images/profile.jpg",   // your portrait in the hero (a larger photo will look sharper)
 
@@ -62,7 +62,9 @@ const DATA = {
      - color / color2: the project's accent colors (cards, glow, project page)
      - mock:     illustration shown until you add a screenshot: "dashboard", "store", or "game"
      - summary:  1–2 sentences shown on the card
-     - image:    cover screenshot, e.g. "screenshots/inventory/cover.png" (leave "" for a placeholder)
+     - wordmark: which built-in text logo to draw (sharp at any size); falls back to logo, then image
+     - logo / logoBg: project logo shown on the card and at the top of the project page, and the color behind it
+     - image:    cover screenshot (used when there's no logo), e.g. "screenshots/inventory/cover.png" (leave "" for a placeholder)
      - gallery:  extra screenshots shown on the project page, each { src, caption }
      - overview: paragraphs for the project page
      - features: bullet points for "What I built"
@@ -80,9 +82,15 @@ const DATA = {
       context: "Internship — J-K Network Services",
       year: "",   // TODO: e.g. "2026"
       tech: ["PHP", "MySQL", "HTML", "CSS", "XAMPP"],
-      image: "",
+      wordmark: "itadmin",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
+      logo: "screenshots/inventory/logo.png", logoBg: "#03122b",   // shown on the card and project header
+      image: "screenshots/inventory/peripherals.png",
       gallery: [
-        // { src: "screenshots/inventory/dashboard.png", caption: "Dashboard" },
+        { src: "screenshots/inventory/peripherals.png", caption: "Computer Peripherals: deployed-device totals and storage stock per department" },
+        { src: "screenshots/inventory/seat-plan.png", caption: "Seat Plan Arrangement: workstation layout by department with occupied/vacant counts" },
+        { src: "screenshots/inventory/trend-micro.png", caption: "Trend Micro Tracker: antivirus license status and expiry, filterable by department" },
+        { src: "screenshots/inventory/admin-users.png", caption: "Admin Users: accounts grouped by department" },
+        { src: "screenshots/inventory/user-accounts.png", caption: "User accounts with Super Admin / Sub Admin roles" }
       ],
       overview: [
         "J-K Network Services needed one place to keep track of its IT assets and administrative records. During my internship I independently designed and developed an internal Inventory & Asset Management System to centralize that data.",
@@ -92,8 +100,11 @@ const DATA = {
         "Designed the MySQL database structure for IT asset and administrative records",
         "Built the back-end logic in PHP, running on XAMPP",
         "Created the user interface with HTML and CSS",
-        "Implemented data-management functions to support internal IT operations and company record management"
-        // TODO: add specific features, e.g. "Search and filter assets by department"
+        "Implemented data-management functions to support internal IT operations and company record management",
+        "Built tracking modules for computer peripherals, purchases, specs, cleaning schedules, access cards, IT issue logs, and internet providers",
+        "Created a seat plan view that maps workstations to departments and counts occupied and vacant seats",
+        "Added Trend Micro license tracking with active, expiring-soon, and expired status",
+        "Set up role-based accounts (Super Admin / Sub Admin) and a change history log"
       ],
       note: "This is an internal company system, so source code isn't public.",
       code: "", demo: ""
@@ -109,8 +120,15 @@ const DATA = {
       context: "Academic project — TIP",
       year: "",
       tech: ["Unity", "C#", "Blender"],
-      image: "",
-      gallery: [],
+      wordmark: "mathplus",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
+      logo: "screenshots/mathplustbs/logo-clean.png", logoBg: "#000000",   // shown on the card and project header
+      image: "screenshots/mathplustbs/main-menu.png",
+      gallery: [
+        { src: "screenshots/mathplustbs/main-menu.png", caption: "Main menu: Start, Library, Tutorial, Help" },
+        { src: "screenshots/mathplustbs/level-select.png", caption: "Topic and level select: Basic Algebra and Fractions, with locked levels" },
+        { src: "screenshots/mathplustbs/characters.png", caption: "Character select: Warrior, Archer, Mage, Assassin" },
+        { src: "screenshots/mathplustbs/battle.png", caption: "Turn-based battle: pick a move, skill, or item" }
+      ],
       overview: [
         "MathPlusTBS is an educational game that makes practicing math interactive. I led the project and developed it despite having no prior game-development experience, teaching myself Unity along the way.",
         "The result is a functional application covering gameplay logic, 3D assets, environment design, and interactive features."
@@ -119,7 +137,10 @@ const DATA = {
         "Programmed the gameplay logic in C#",
         "Modeled 3D assets in Blender",
         "Designed the game environments in Unity",
-        "Built the interactive features that tie the math content to gameplay"
+        "Built the interactive features that tie the math content to gameplay",
+        "Math topics (Basic Algebra and Fractions) with levels that unlock as you progress",
+        "Four playable character classes: Warrior, Archer, Mage, and Assassin",
+        "Turn-based battles with basic moves, skills, and items"
       ],
       note: "",
       code: "", demo: ""
@@ -130,13 +151,21 @@ const DATA = {
       short: "E-Commerce",
       tag: "Academic · Web",
       title: "Web-Based E-Commerce System",
-      summary: "A full-stack online store for computers and electronic devices, with product listings, database integration, and a purchasing flow.",
+      summary: "GG-EZ, a full-stack online store for gaming gear and electronics, with a customer shop and a full admin panel.",
       role: "Full-stack developer",
       context: "Academic project — TIP",
       year: "",
       tech: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
-      image: "",
-      gallery: [],
+      wordmark: "ggez",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
+      logo: "screenshots/ecommerce/logo.png", logoBg: "#07080c",   // shown on the card and project header
+      image: "screenshots/ecommerce/home.png",
+      gallery: [
+        { src: "screenshots/ecommerce/home.png", caption: "Home page with a featured products carousel" },
+        { src: "screenshots/ecommerce/shop.png", caption: "Shop: product catalog with price and category filters" },
+        { src: "screenshots/ecommerce/admin-dashboard.png", caption: "Admin dashboard: orders, customers, and inventory alerts" },
+        { src: "screenshots/ecommerce/activity-logs.png", caption: "Activity logs that track admin actions" },
+        { src: "screenshots/ecommerce/location.png", caption: "Store location page with an embedded map" }
+      ],
       overview: [
         "A full-stack e-commerce website for selling computers and electronic devices.",
         "It covers the essentials of an online store: browsable product listings, front-end interfaces, a database behind the catalog, and the core purchasing flow."
@@ -145,7 +174,10 @@ const DATA = {
         "Product listings for computers and electronic devices",
         "Front-end interfaces built with HTML, CSS, and JavaScript",
         "MySQL database integration through a PHP back end",
-        "Core purchasing functionality"
+        "Core purchasing functionality: cart, wishlist, and order history",
+        "Shop page with price-range and category filters",
+        "Admin panel for orders, admins, users, promotions, discounts, and delivery",
+        "Activity log that records admin actions"
       ],
       note: "",
       code: "", demo: ""
