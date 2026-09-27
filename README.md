@@ -20,6 +20,7 @@ Personal portfolio site for **John Rendell L. Fuerte**, Junior Full Stack Develo
 ```
 ├── index.html          Page skeleton; loads the styles and scripts below
 ├── resume.pdf          Downloadable résumé
+├── favicon.svg         Browser tab icon (+ favicon-32.png, favicon.ico, apple-touch-icon.png)
 ├── css/
 │   ├── base.css        Color tokens (light/dark), reset, layout container
 │   ├── components.css  Nav, buttons, chips, project covers, lightbox
@@ -34,7 +35,7 @@ Personal portfolio site for **John Rendell L. Fuerte**, Junior Full Stack Develo
 │   ├── effects.js      Particles, typing text, card tilt, scroll reveal
 │   ├── theme.js        Light/dark mode toggle
 │   └── main.js         Starts the site
-├── images/             Profile photo
+├── images/             Profile photo and og-image.png (link preview for LinkedIn etc.)
 └── screenshots/        Project screenshots referenced from data.js
 ```
 
