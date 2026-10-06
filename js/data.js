@@ -221,8 +221,9 @@ const DATA = {
       ],
       // TODO: rewrite in your own words if this isn't quite your reason
       motivation: [
-        "I train regularly and wanted a single app that matched how I actually work out: plan the week's split, log every set, and see whether I'm getting stronger, without the clutter of the apps I'd tried.",
-        "It was also my excuse to learn mobile development. I designed every screen in Figma first, then taught myself Flutter and Dart to build it and ship a real APK."
+        "I go for regular exercise, but one problem I have always had is forgetting where I am at—specifically, how many times I usually perform each exercise, how heavy the weights are, and in what order I do them. As a result, my workouts often seemed disordered and irregular. Moreover, I had difficulty in keeping track of both the number of calories and the amount of protein that I consumed, which in turn made it harder for me to stick to my fitness goals.",
+        "When considering another workout app I decided to make my own. I wanted one that matched the way I actually train—that is to say, to plan my workout schedule, record each set, track both the weight and the number of times I lift, keep an eye on what I eat, and check whether I am in fact getting stronger over time.",
+        "It also provided me with a means of continuing to improve my coding skills after I had left school. I designed all the parts of the app using Figma and then taught myself Flutter and Dart so as to make the app function and turn it into a real one."
       ],
       overview: [
         "Workout Tracker is a Flutter app for planning a weekly training split, logging workouts set by set, tracking progress over time, and keeping a food log.",
