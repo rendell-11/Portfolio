@@ -85,12 +85,17 @@ const DATA = {
       tech: ["PHP", "MySQL", "HTML", "CSS", "XAMPP"],
       wordmark: "itadmin",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/inventory/logo.png", logoBg: "#03122b",   // shown on the card and project header
-      image: "screenshots/inventory/peripherals.png",
+      image: "screenshots/inventory/peripherals.webp",
       gallery: [
-        { src: "screenshots/inventory/peripherals.png", caption: "Computer Peripherals: deployed-device totals and storage stock per department" },
-        { src: "screenshots/inventory/seat-plan.png", caption: "Seat Plan Arrangement: workstation layout by department with occupied/vacant counts" },
-        { src: "screenshots/inventory/trend-micro.png", caption: "Trend Micro Tracker: antivirus license status and expiry, filterable by department" },
-        { src: "screenshots/inventory/admin-users.png", caption: "Admin Users: accounts grouped by department" },
+        { src: "screenshots/inventory/peripherals.webp", caption: "Computer Peripherals: deployed-device totals and storage stock per department" },
+        { src: "screenshots/inventory/seat-plan.webp", caption: "Seat Plan Arrangement: workstation layout by department with occupied/vacant counts" },
+        { src: "screenshots/inventory/admin-users.webp", caption: "Admin Users: workstation users grouped by department" },
+        { src: "screenshots/inventory/specs.webp", caption: "Computer Specifications: processor, RAM, storage, and OS per unit, with completed/incomplete counts" },
+        { src: "screenshots/inventory/purchases.webp", caption: "Computer Purchases: purchase dates and remarks per unit" },
+        { src: "screenshots/inventory/cleaning.webp", caption: "Computer Cleaning: maintenance checklist per device and part" },
+        { src: "screenshots/inventory/trend-micro.webp", caption: "Trend Micro Tracker: antivirus license status and expiry, filterable by department" },
+        { src: "screenshots/inventory/access-cards.webp", caption: "Access Card Tracker: keycards, access levels, and active/returned/vacant status" },
+        { src: "screenshots/inventory/internet.webp", caption: "Internet Details: ISP accounts, network monitoring, and configuration records" },
         { src: "screenshots/inventory/user-accounts.png", caption: "User accounts with Super Admin / Sub Admin roles" }
       ],
       overview: [
@@ -103,6 +108,7 @@ const DATA = {
         "Created the user interface with HTML and CSS",
         "Implemented data management functions to support internal IT operations and company record management",
         "Built tracking modules for computer peripherals, purchases, specs, cleaning schedules, access cards, IT issue logs, and internet providers",
+        "Added summary cards on each module (totals, pending, expiring, vacant) plus department filters, search, and pagination",
         "Created a seat plan view that maps workstations to departments and counts occupied and vacant seats",
         "Added Trend Micro license tracking with active, expiring-soon, and expired status",
         "Set up role-based accounts (Super Admin / Sub Admin) and a change history log"
@@ -313,7 +319,15 @@ const DATA = {
       tech: ["React Native", "Expo", "TypeScript", "Claude API", "Jest"],
       wordmark: "voicenote",
       logo: "screenshots/voicenote/icon.png", logoBg: "#f5f3ea",
-      gallery: [],   // TODO: add phone screenshots, e.g. { src: "screenshots/voicenote/home.png", caption: "..." }, and list up to 3 in phones: [...]
+      phones: ["screenshots/voicenote/02_home.webp", "screenshots/voicenote/01_splash.webp", "screenshots/voicenote/05_dictating.webp"],
+      gallery: [
+        { src: "screenshots/voicenote/01_splash.webp", caption: "Animated splash screen: \"Say it. Save it.\"" },
+        { src: "screenshots/voicenote/02_home.webp", caption: "Notes list with search (by typing or voice) and pinned notes" },
+        { src: "screenshots/voicenote/03_home_dark.webp", caption: "Dark mode, switched from the top-right toggle" },
+        { src: "screenshots/voicenote/04_editor.webp", caption: "Note editor with word count, share, and tap-to-dictate" },
+        { src: "screenshots/voicenote/05_dictating.webp", caption: "Dictating: live recording timer and waveform" },
+        { src: "screenshots/voicenote/06_formatting.webp", caption: "Formatting toolbar: headings, bold, italic, bullet lists, and checklists" }
+      ],
       motivation: [
         "VoiceNote was a learning project. Most of my work is in PHP and MySQL, so I built this to explore TypeScript with React Native and Expo, add another skill, and get familiar with other programming languages and tools.",
         "Picking a voice-first notes app gave me real problems to solve along the way: native speech recognition, structured AI output, and a data layer that can be tested."
@@ -324,6 +338,8 @@ const DATA = {
       ],
       features: [
         "Voice typing with live results through the phone's speech recognizer (expo-speech-recognition)",
+        "Voice commands like \"new paragraph\", a dictation language switch, and voice search",
+        "Rich-text formatting: H1–H3 headings, bold, italic, bullet lists, and checklists",
         "AI insights from Claude, validated against a Zod schema so the UI never parses free text",
         "Pin, search, and multi-select delete with Undo",
         "Share any note through the system share sheet",
