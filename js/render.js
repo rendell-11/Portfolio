@@ -145,7 +145,7 @@ function renderHome() {
       <div class="loc" data-in style="--d:.5">📍 ${esc(DATA.location)}</div>
       <div class="cta" data-in style="--d:.6">
         <a class="btn primary" href="#projects">View my projects →</a>
-        <a class="btn" href="#resume">See my résumé</a>
+        <a class="btn" href="#resume">See my resume</a>
         <a class="btn" ${ext(DATA.github)}>GitHub ↗</a>
       </div>
     </div>
@@ -155,7 +155,7 @@ function renderHome() {
       <dl class="facts">
         <div><dt>based in</dt><dd>${esc(DATA.location.split(",")[0])}, PH</dd></div>
         <div><dt>studied at</dt><dd>TIP Quezon City</dd></div>
-        <div><dt>works on</dt><dd>Web apps + hardware</dd></div>
+        <div><dt>works on</dt><dd>Software Dev + hardware</dd></div>
       </dl>
     </figure>
 
@@ -204,11 +204,12 @@ function renderHome() {
     <div class="section-head">
       <div>
         ${sectionTitle("04", `The <span class="hl">résumé</span>`)}
-        <p class="section-sub" data-reveal>Experience, skills, and education at a glance.</p>
+        <p class="section-sub" data-reveal>Experience, skills, and education at a glance, plus my cover letter.</p>
       </div>
       <div class="cta" data-reveal>
-        <a class="btn primary" href="${esc(DATA.resume)}" download>Download PDF ↓</a>
-        <a class="btn" ${ext(DATA.resume)}>View PDF</a>
+        <a class="btn primary" href="${esc(DATA.resume)}" download>Download résumé ↓</a>
+        <a class="btn" ${ext(DATA.resume)}>View résumé</a>
+        ${DATA.coverLetter ? `<a class="btn" ${ext(DATA.coverLetter)}>Cover letter ↗</a>` : ""}
       </div>
     </div>
     <div class="resume-summary" data-reveal>${DATA.about.map(p => `<p>${esc(p)}</p>`).join("")}</div>
@@ -286,12 +287,14 @@ function renderProject(p) {
 
     ${gallery.length ? `<div class="gallery-wrap">
       <h3 data-reveal>Screenshots</h3>
-      <div class="gallery ${p.phones ? "phone-shots" : ""}">${gallery.map((g, n) => `
-        <button class="shot-btn" data-shot="${n}" data-reveal style="--d:${n * .08}" aria-label="Enlarge screenshot: ${esc(g.caption || p.title)}">
-          <figure><img src="${esc(g.src)}" alt="${esc(g.caption || p.title)}" loading="lazy">
-          ${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ""}</figure>
-        </button>`).join("")}
-      </div>
+      ${[...new Set(gallery.map(g => g.group || ""))].map(group => `
+        ${group ? `<h4 class="gallery-group" data-reveal>${esc(group)}</h4>` : ""}
+        <div class="gallery ${p.phones ? "phone-shots" : ""}">${gallery.map((g, n) => (g.group || "") !== group ? "" : `
+          <button class="shot-btn" data-shot="${n}" data-reveal style="--d:${(n % 6) * .08}" aria-label="Enlarge screenshot: ${esc(g.caption || p.title)}">
+            <figure><img src="${esc(g.src)}" alt="${esc(g.caption || p.title)}" loading="lazy">
+            ${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ""}</figure>
+          </button>`).join("")}
+        </div>`).join("")}
     </div>` : ""}
 
     <nav class="pager" aria-label="More projects">

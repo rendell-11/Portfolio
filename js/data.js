@@ -7,25 +7,26 @@ const DATA = {
   name: "John Rendell L. Fuerte", 
   short: "Rendell",
   role: "Junior Full Stack Developer",
-  tagline: "BS Information Technology graduate with experience in full-stack web development, database management, UI/UX design, and IT support — creating practical digital solutions from backend logic to user interface.",
+  tagline: "BS Information Technology graduate with experience in full-stack web development, full stack mobile application, Unity games, database management, UI/UX design, and IT support, creating practical digital solutions from backend logic to user interface.",
   location: "Quezon City, Philippines",
   email: "fuertejohnrendell@gmail.com",
   github: "https://github.com/rendell-11",
   linkedin: "www.linkedin.com/in/john-rendell-fuerte-5396b723b",   // TODO: confirm this URL
   resume: "resume.pdf",   // put your PDF next to index.html with this name
+  coverLetter: "cover-letter.pdf",   // leave "" to hide the cover letter button
   photo: "images/profile.jpg",   // your portrait in the hero (a larger photo will look sharper)
 
   // Hero extras
   status: "Open to Junior Full Stack roles",   // shown in the green "available" badge
   typed: [                                      // phrases the hero types out after "I build…"
-    "full-stack web systems.",
-    "inventory & asset tools.",
+    "Full-stack Web Systems.",
+    "Inventory & Asset tools.",
     "Unity games with C#.",
-    "things that work end to end."
+    "Things that work end to end."
   ],
 
   stats: [
-    { value: "3", label: "Full-stack & game projects shipped" },
+    { value: "3", label: "Full stack & game projects shipped" },
     { value: "19", label: "Workstations built & deployed" },
     { value: "2026", label: "BSIT Graduate, TIP Quezon City" }
   ],
@@ -100,7 +101,7 @@ const DATA = {
         "Designed the MySQL database structure for IT asset and administrative records",
         "Built the back-end logic in PHP, running on XAMPP",
         "Created the user interface with HTML and CSS",
-        "Implemented data-management functions to support internal IT operations and company record management",
+        "Implemented data management functions to support internal IT operations and company record management",
         "Built tracking modules for computer peripherals, purchases, specs, cleaning schedules, access cards, IT issue logs, and internet providers",
         "Created a seat plan view that maps workstations to departments and counts occupied and vacant seats",
         "Added Trend Micro license tracking with active, expiring-soon, and expired status",
@@ -123,24 +124,55 @@ const DATA = {
       wordmark: "mathplus",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/mathplustbs/logo-clean.png", logoBg: "#000000",   // shown on the card and project header
       image: "screenshots/mathplustbs/main-menu.png",
+      // In play order. group: splits the screenshots under a heading on the project page
       gallery: [
-        { src: "screenshots/mathplustbs/main-menu.png", caption: "Main menu: Start, Library, Tutorial, Help" },
-        { src: "screenshots/mathplustbs/level-select.png", caption: "Topic and level select: Basic Algebra and Fractions, with locked levels" },
-        { src: "screenshots/mathplustbs/characters.png", caption: "Character select: Warrior, Archer, Mage, Assassin" },
-        { src: "screenshots/mathplustbs/battle.png", caption: "Turn-based battle: pick a move, skill, or item" }
+        { group: "Getting started", src: "screenshots/mathplustbs/main-menu.png", caption: "Main menu: Start, Library, Tutorial, Help" },
+        { group: "Getting started", src: "screenshots/mathplustbs/level-select.png", caption: "Topic and level select: Basic Algebra and Fractions, with locked levels" },
+        { group: "Getting started", src: "screenshots/mathplustbs/characters.png", caption: "Character select: Warrior, Archer, Mage, Assassin" },
+        { group: "Story intro", src: "screenshots/mathplustbs/intro-classroom.webp", caption: "The story opens in class: \"Another day, another boring topic\"" },
+        { group: "Story intro", src: "screenshots/mathplustbs/intro-overslept.webp", caption: "The student wakes up somewhere unfamiliar" },
+        { group: "Story intro", src: "screenshots/mathplustbs/intro-wizard.webp", caption: "An old wizard offers to help" },
+        { group: "Story intro", src: "screenshots/mathplustbs/npc-welcome.webp", caption: "In the dungeon, an NPC welcomes the player to Basic Algebra" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/perfect-choice.webp", caption: "Answering correctly: \"Perfect Choice!\"" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/enemy.webp", caption: "An enemy lurking in the dark" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/dungeon.webp", caption: "Exploring the torch-lit dungeon with the minimap, timer, HP, and score" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/dungeon-cells.webp", caption: "Locked cells along the dungeon corridor" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/clue-variable.webp", caption: "A math clue at a locked gate: what a variable is" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/lesson-chalkboard.webp", caption: "Chalkboard lessons teach the topic as you explore" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/clue-pickup.webp", caption: "Picking up a clue scroll" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/puzzle.webp", caption: "A picture puzzle that must be solved to open the gate" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/gate-unlock.webp", caption: "The gate unlocks once the puzzle is solved" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle.png", caption: "Turn-based battle: pick a move or a skill" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle-items.webp", caption: "Using items in battle: strength, health, defense, and skill potions" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle-victory.webp", caption: "Battle won: bonus points and a gold-coin reward" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/level-completed.webp", caption: "Level completed on the magic circle" },
+        { group: "More worlds", src: "screenshots/mathplustbs/world-grassland.webp", caption: "Grassland world" },
+        { group: "More worlds", src: "screenshots/mathplustbs/world-desert.webp", caption: "Desert canyon world" },
+        { group: "More worlds", src: "screenshots/mathplustbs/world-treasure.webp", caption: "Treasure room full of gold coins" },
+        { group: "More worlds", src: "screenshots/mathplustbs/world-lava.webp", caption: "Lava world" },
+        { group: "More worlds", src: "screenshots/mathplustbs/world-portal.webp", caption: "A portal to the next stage" },
+        { group: "More worlds", src: "screenshots/mathplustbs/final-victory.webp", caption: "Victory screen" },
+        { group: "In-game menus", src: "screenshots/mathplustbs/player-stats.webp", caption: "Player stats: HP, level, power, defense, and equipment" },
+        { group: "In-game menus", src: "screenshots/mathplustbs/inventory.webp", caption: "Inventory: potions and collected clues" },
+        { group: "In-game menus", src: "screenshots/mathplustbs/pause-menu.webp", caption: "Pause menu" }
       ],
       overview: [
-        "MathPlusTBS is an educational game that makes practicing math interactive. I led the project and developed it despite having no prior game-development experience, teaching myself Unity along the way.",
+        "MathPlusTBS is an educational game that makes practicing math interactive. I led the project and developed it despite having no prior game development experience, teaching myself Unity along the way.",
+        "The player is a student who falls asleep in a boring math class and wakes up in a fantasy world. To get through each level, they explore dungeons, collect clues and lessons on the topic, solve puzzles to unlock gates, and fight enemies in turn-based battles.",
         "The result is a functional application covering gameplay logic, 3D assets, environment design, and interactive features."
       ],
       features: [
         "Programmed the gameplay logic in C#",
         "Modeled 3D assets in Blender",
-        "Designed the game environments in Unity",
+        "Designed the game environments in Unity: a dungeon, grassland, desert, treasure room, and lava world",
         "Built the interactive features that tie the math content to gameplay",
         "Math topics (Basic Algebra and Fractions) with levels that unlock as you progress",
+        "Story cutscenes and NPC dialogue that introduce each topic",
+        "Clues, chalkboard lessons, and puzzles that unlock gates",
         "Four playable character classes: Warrior, Archer, Mage, and Assassin",
-        "Turn-based battles with basic moves, skills, and items"
+        "Turn-based battles with basic moves, skills, and items",
+        "In-game HUD with minimap, timer, HP, level, score, and gold coins, plus touch controls",
+        "Inventory with potions, a player stats screen with equipment, and a pause menu"
       ],
       note: "",
       code: "", demo: ""
@@ -159,16 +191,33 @@ const DATA = {
       wordmark: "ggez",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/ecommerce/logo.png", logoBg: "#07080c",   // shown on the card and project header
       image: "screenshots/ecommerce/home.png",
+      // group: splits the screenshots under a heading on the project page
       gallery: [
-        { src: "screenshots/ecommerce/home.png", caption: "Home page with a featured products carousel" },
-        { src: "screenshots/ecommerce/shop.png", caption: "Shop: product catalog with price and category filters" },
-        { src: "screenshots/ecommerce/admin-dashboard.png", caption: "Admin dashboard: orders, customers, and inventory alerts" },
-        { src: "screenshots/ecommerce/activity-logs.png", caption: "Activity logs that track admin actions" },
-        { src: "screenshots/ecommerce/location.png", caption: "Store location page with an embedded map" }
+        { group: "Customer side", src: "screenshots/ecommerce/home.png", caption: "Home page with a featured products carousel" },
+        { group: "Customer side", src: "screenshots/ecommerce/shop.png", caption: "Shop: product catalog with price and category filters" },
+        { group: "Customer side", src: "screenshots/ecommerce/location.png", caption: "Store location page with an embedded map" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/01-dashboard.webp", caption: "Admin dashboard: store stats, inventory alerts, newest users, and most viewed products" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/02-login.webp", caption: "Admin panel login prompt" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/03-orders.webp", caption: "Placed orders: update payment status and handle cancellation and refund requests" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/04-admin-accounts.webp", caption: "Admin accounts with Super, Order, and Delivery admin roles" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/05-activity-logs.webp", caption: "Activity logs: every admin action with a timestamp, searchable and filterable by admin" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/06-user-accounts.webp", caption: "Customer accounts" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/07-promotions.webp", caption: "Promotion builder for image and video campaigns on the homepage" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/08-order-status.webp", caption: "Delivery reports: order status, delivery date, and assigned courier" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/09-courier-login.webp", caption: "Separate login for couriers" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/10-courier-accounts.webp", caption: "Creating and managing courier accounts" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/11-messages.webp", caption: "Customer feedback inbox" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/12-user-comments.webp", caption: "Product comments and ratings from customers" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/13-add-product.webp", caption: "Adding a product with price, category, stock, and three images" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/14-manage-categories.webp", caption: "Products grouped by category, with update and archive actions" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/15-archived-products.webp", caption: "Archived products that can be restored" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/16-product-reports.webp", caption: "Sales reports: sales-over-time chart, sales calendar, and PDF export" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/17-update-profile.webp", caption: "Admin profile and password update" }
       ],
       overview: [
         "A full-stack e-commerce website for selling computers and electronic devices.",
-        "It covers the essentials of an online store: browsable product listings, front-end interfaces, a database behind the catalog, and the core purchasing flow."
+        "It covers the essentials of an online store: browsable product listings, front-end interfaces, a database behind the catalog, and the core purchasing flow.",
+        "Behind the store is a full admin panel for running the business: managing orders and deliveries, products and categories, promotions, customer messages, and admin accounts with role-based access, with every admin action recorded in an activity log."
       ],
       features: [
         "Product listings for computers and electronic devices",
@@ -176,8 +225,15 @@ const DATA = {
         "MySQL database integration through a PHP back end",
         "Core purchasing functionality: cart, wishlist, and order history",
         "Shop page with price-range and category filters",
-        "Admin panel for orders, admins, users, promotions, discounts, and delivery",
-        "Activity log that records admin actions"
+        "Admin dashboard with store stats, inventory alerts, newest users, and most viewed products",
+        "Order management: payment status updates and cancellation and refund requests",
+        "Role-based admin accounts (Super Admin, Order Admin, Delivery Admin)",
+        "Activity log that records every admin action with a timestamp",
+        "Delivery management with courier accounts, a separate courier login, and delivery status reports",
+        "Product management: add, update, archive, and restore products by category",
+        "Marketing tools: image and video promotions and discounts",
+        "Customer feedback inbox and product comments",
+        "Sales reports with a sales-over-time chart, a sales calendar, and PDF export"
       ],
       note: "",
       code: "", demo: ""
@@ -221,9 +277,9 @@ const DATA = {
       ],
       // TODO: rewrite in your own words if this isn't quite your reason
       motivation: [
-        "I go for regular exercise, but one problem I have always had is forgetting where I am at—specifically, how many times I usually perform each exercise, how heavy the weights are, and in what order I do them. As a result, my workouts often seemed disordered and irregular. Moreover, I had difficulty in keeping track of both the number of calories and the amount of protein that I consumed, which in turn made it harder for me to stick to my fitness goals.",
-        "When considering another workout app I decided to make my own. I wanted one that matched the way I actually train—that is to say, to plan my workout schedule, record each set, track both the weight and the number of times I lift, keep an eye on what I eat, and check whether I am in fact getting stronger over time.",
-        "It also provided me with a means of continuing to improve my coding skills after I had left school. I designed all the parts of the app using Figma and then taught myself Flutter and Dart so as to make the app function and turn it into a real one."
+        "I go for regular exercise, but one problem I have always had is forgetting where I am at specifically, how many times I usually do each workouts, how heavy the weights are, and in what order I do them. As a result my workouts often seemed unorganized and irregular. I had difficulty in keeping track of both the number of calories and the amount of protein that I intake, which made it harder for me to stick to my fitness goals.",
+        "Instead of considering another workout app I decided to make my own. I wanted one that matched the way I actually workout, to plan my workout schedule, record each set, track both the weight and the number of times I lift, keep an eye on what I eat, and check whether I am improving over time.",
+        "It also provided me with a means of continuing to improve my coding skills after I had graduated from school. I designed all the parts of the app using Figma and then enhance myself in Flutter and Dart to make the app function and turn it into a real one."
       ],
       overview: [
         "Workout Tracker is a Flutter app for planning a weekly training split, logging workouts set by set, tracking progress over time, and keeping a food log.",
