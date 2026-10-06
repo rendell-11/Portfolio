@@ -66,6 +66,13 @@ All text lives in [`js/data.js`](js/data.js). To add a project, add an entry to 
 }
 ```
 
+Personal projects go in `DATA.personalProjects` and use the same fields, plus:
+
+- `why`: one line shown on the card under "Why I built it"
+- `motivation`: paragraphs for the "Why I built it" box on the project page
+- `phones`: up to 3 portrait phone screenshots shown side by side on the cover
+- `demoLabel`: text for the demo button (defaults to "Live demo")
+
 ## Running locally
 
 Open `index.html` in a browser — no server or install needed.

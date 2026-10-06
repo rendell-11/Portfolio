@@ -184,6 +184,94 @@ const DATA = {
     }
   ],
 
+  /* ---------- PERSONAL PROJECTS ----------
+     Same fields as TOP PROJECTS, plus:
+     - why:        one line for the card ("Why I built it")
+     - motivation: paragraphs for the "Why I built it" part of the project page
+     - phones:     portrait phone screenshots shown side by side on the cover (up to 3)
+     - demoLabel:  text for the demo button (default "Live demo")
+  */
+  personalProjects: [
+    {
+      slug: "workout-tracker",
+      color: "#e5383b", color2: "#ff7a59", mock: "dashboard",
+      short: "Workout Tracker",
+      tag: "Personal · Mobile",
+      title: "Workout Tracker — Flutter Fitness App",
+      summary: "An Android app for planning a weekly training split, logging workouts set by set, tracking progress, and hitting daily nutrition targets.",
+      why: "I wanted one app that fits the way I actually train, and a reason to learn Flutter.",   // TODO: confirm in your own words
+      role: "Solo developer & designer",
+      context: "Personal project",
+      year: "2026",
+      tech: ["Flutter", "Dart", "Material 3", "fl_chart", "Figma"],
+      phones: ["screenshots/workout-tracker/1_planner.png", "screenshots/workout-tracker/3_workout.png", "screenshots/workout-tracker/4_progress.png"],
+      gallery: [
+        { src: "screenshots/workout-tracker/1_planner.png", caption: "Weekly planner with today's workout, streak, and calendar" },
+        { src: "screenshots/workout-tracker/2_split.png", caption: "Choosing a muscle-group split for the day" },
+        { src: "screenshots/workout-tracker/3_workout.png", caption: "Logging a workout set by set" },
+        { src: "screenshots/workout-tracker/4_progress.png", caption: "Progress charts: workouts per week and heaviest set" },
+        { src: "screenshots/workout-tracker/5_food.png", caption: "Food tracker against daily calorie and macro targets" }
+      ],
+      // TODO: rewrite in your own words if this isn't quite your reason
+      motivation: [
+        "I train regularly and wanted a single app that matched how I actually work out: plan the week's split, log every set, and see whether I'm getting stronger, without the clutter of the apps I'd tried.",
+        "It was also my excuse to learn mobile development. I designed every screen in Figma first, then taught myself Flutter and Dart to build it and ship a real APK."
+      ],
+      overview: [
+        "Workout Tracker is a Flutter app for planning a weekly training split, logging workouts set by set, tracking progress over time, and keeping a food log.",
+        "Everything is saved on the device, and a demo mode fills the app with eight weeks of sample workouts so anyone can explore it right away."
+      ],
+      features: [
+        "Weekly planner: pick a split for each day, with custom-painted icons for each muscle group",
+        "Exercise library with 50+ exercises, equipment, form cues, and target muscles",
+        "Set-by-set workout logging, prefilled with the numbers from your last session",
+        "Workout summary with duration, volume, estimated calories, and personal records",
+        "Progress charts for workouts per week and heaviest set per exercise",
+        "Daily calorie and macro targets using the Mifflin-St Jeor equation, with safety limits and sources",
+        "Food tracker, profile, and live BMI readout",
+        "State managed with a ChangeNotifier; data stored with shared_preferences and JSON serialization"
+      ],
+      note: "Android only. Open the app and tap \"Try it with demo data\" to explore with sample workouts.",
+      code: "https://github.com/rendell-11/workout-tracker",
+      demo: "https://github.com/rendell-11/workout-tracker/releases/latest", demoLabel: "Download APK"
+    },
+    {
+      slug: "voicenote",
+      color: "#36725e", color2: "#a33327", mock: "dashboard",
+      short: "VoiceNote",
+      tag: "Personal · Mobile",
+      title: "VoiceNote — Voice-First Notes App",
+      summary: "A React Native notes app where you speak your thoughts and an optional Claude-powered assistant summarizes them, suggests a title, and pulls out the to-dos.",
+      why: "To explore TypeScript, React Native, and Expo, and get comfortable with tools outside my usual stack.",
+      role: "Solo developer",
+      context: "Personal project",
+      year: "2026",
+      tech: ["React Native", "Expo", "TypeScript", "Claude API", "Jest"],
+      wordmark: "voicenote",
+      logo: "screenshots/voicenote/icon.png", logoBg: "#f5f3ea",
+      gallery: [],   // TODO: add phone screenshots, e.g. { src: "screenshots/voicenote/home.png", caption: "..." }, and list up to 3 in phones: [...]
+      motivation: [
+        "VoiceNote was a learning project. Most of my work is in PHP and MySQL, so I built this to explore TypeScript with React Native and Expo, add another skill, and get familiar with other programming languages and tools.",
+        "Picking a voice-first notes app gave me real problems to solve along the way: native speech recognition, structured AI output, and a data layer that can be tested."
+      ],
+      overview: [
+        "VoiceNote is a voice-first notes app for Android and iOS. You dictate straight into a note, and the text is inserted at the cursor, so you can mix typing and speaking.",
+        "An optional AI assistant, powered by Claude, gives a one-sentence summary, a suggested title, a to-do list, and a cleaned-up version of dictated text, each applied with one tap. Notes are stored on the device, so everything except AI works offline."
+      ],
+      features: [
+        "Voice typing with live results through the phone's speech recognizer (expo-speech-recognition)",
+        "AI insights from Claude, validated against a Zod schema so the UI never parses free text",
+        "Pin, search, and multi-select delete with Undo",
+        "Share any note through the system share sheet",
+        "Dark mode that follows the phone or is set manually, and a screen-reader label on every control",
+        "Typed data layer over AsyncStorage, with notes addressed by stable ids and automatic migration",
+        "Unit tests with Jest and a GitHub Actions pipeline for lint, type-check, and tests"
+      ],
+      note: "",
+      code: "", demo: ""
+    }
+  ],
+
   experience: [
     {
       title: "Full Stack Developer / IT Support Intern",

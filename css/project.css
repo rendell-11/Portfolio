@@ -76,3 +76,17 @@
 /* Logo header on the project page */
 .detail .cover.hero-cover.logo-cover { aspect-ratio: 16 / 6; }
 @media (max-width: 640px) { .detail .cover.hero-cover.logo-cover { aspect-ratio: 16 / 9; } }
+
+/* "Why I built it" on personal project pages */
+.motivation { padding: 22px 24px; border-radius: 18px; margin-bottom: 48px;
+  background: color-mix(in srgb, var(--pc) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--pc) 25%, transparent); }
+.motivation h3 { margin-bottom: 12px; }
+.prose .motivation p { color: var(--text); }
+
+/* Phone covers on the project page */
+.detail .cover.hero-cover.phones-cover { aspect-ratio: 16 / 9; }
+@media (max-width: 640px) { .detail .cover.hero-cover.phones-cover { aspect-ratio: 4 / 3; } }
+
+/* Portrait (phone) screenshots */
+.gallery.phone-shots { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.gallery.phone-shots .shot-btn img { aspect-ratio: 540 / 1170; object-fit: cover; object-position: top; }

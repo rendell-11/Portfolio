@@ -57,12 +57,24 @@ const WORDMARKS = {
     <div class="wm wm-mp">
       ${p.logo ? `<img src="${esc(p.logo)}" alt="" aria-hidden="true">` : ""}
       <span><b class="name">MathPlus</b><small class="tag">TBS · Unity game</small></span>
+    </div>`,
+  voicenote: p => `
+    <div class="wm wm-vn">
+      <img src="${esc(p.logo)}" alt="" aria-hidden="true">
+      <span><b class="name">VoiceNote</b><small class="sub">Speak it · Note it</small></span>
     </div>`
 };
 
+// Which list a project belongs to, and the home-page section it's shown in
+const listOf = p => DATA.personalProjects.includes(p) ? DATA.personalProjects : DATA.projects;
+const sectionOf = p => listOf(p) === DATA.projects ? "projects" : "personal";
+
 // The cover carries a per-project view-transition-name, so the card's cover
 // and the project page's cover are treated as the same element and morph.
-const cover = (p, cls = "") => WORDMARKS[p.wordmark] ? `
+const cover = (p, cls = "") => p.phones ? `
+  <div class="cover phones-cover ${cls}" style="view-transition-name: cover-${p.slug}; ${colors(p)}">
+    ${p.phones.slice(0, 3).map((src, n) => `<div class="phone"><img src="${esc(src)}" alt="${n ? "" : `Screenshot of ${esc(p.title)}`}" ${n ? `aria-hidden="true"` : ""}></div>`).join("")}
+  </div>` : WORDMARKS[p.wordmark] ? `
   <div class="cover logo-cover ${cls}" style="view-transition-name: cover-${p.slug}; ${colors(p)} --lbg: ${esc(p.logoBg || "#111")};"
     role="img" aria-label="${esc(p.title)} logo">
     ${WORDMARKS[p.wordmark](p)}
@@ -84,6 +96,20 @@ function sizeLogo(img) {
 function markSmallCover(img) {
   if (img.naturalWidth < 900) img.closest(".cover").classList.add("small");
 }
+
+const projectCard = (p, i, featured) => `
+  <a class="card ${featured ? "featured" : ""}" href="#/projects/${p.slug}" data-reveal data-tilt style="${colors(p)} --d:${i * .1}" aria-label="${esc(p.title)} — view project">
+    ${cover(p)}
+    <div class="card-body">
+      ${featured ? `<span class="star">★ Featured</span>` : ""}
+      <div class="tag">${esc(p.tag)}</div>
+      <h4>${esc(p.title)}</h4>
+      <p>${esc(p.summary)}</p>
+      ${p.why ? `<p class="why"><b>Why I built it</b>${esc(p.why)}</p>` : ""}
+      <div class="chips">${p.tech.map(t => `<span class="chip tech">${esc(t)}</span>`).join("")}</div>
+      <div class="more">View project <i>→</i></div>
+    </div>
+  </a>`;
 
 const sectionTitle = (num, title) => `<div class="section-title" data-reveal><span class="num">${num}</span><h3>${title}</h3></div>`;
 
@@ -148,23 +174,17 @@ function renderHome() {
   <section id="projects">
     ${sectionTitle("01", `Things I've <span class="hl">built</span>`)}
     <p class="section-sub" data-reveal>Click a project for the full story, screenshots, and tech details.</p>
-    <div class="projects">${DATA.projects.map((p, i) => `
-      <a class="card ${i === 0 ? "featured" : ""}" href="#/projects/${p.slug}" data-reveal data-tilt style="${colors(p)} --d:${i * .1}" aria-label="${esc(p.title)} — view project">
-        ${cover(p)}
-        <div class="card-body">
-          ${i === 0 ? `<span class="star">★ Featured</span>` : ""}
-          <div class="tag">${esc(p.tag)}</div>
-          <h4>${esc(p.title)}</h4>
-          <p>${esc(p.summary)}</p>
-          <div class="chips">${p.tech.map(t => `<span class="chip tech">${esc(t)}</span>`).join("")}</div>
-          <div class="more">View project <i>→</i></div>
-        </div>
-      </a>`).join("")}
-    </div>
+    <div class="projects">${DATA.projects.map((p, i) => projectCard(p, i, i === 0)).join("")}</div>
+  </section>
+
+  <section id="personal">
+    ${sectionTitle("02", `Personal <span class="hl">projects</span>`)}
+    <p class="section-sub" data-reveal>Things I build on my own time to learn new tools, and why I built each one.</p>
+    <div class="projects">${DATA.personalProjects.map((p, i) => projectCard(p, i, false)).join("")}</div>
   </section>
 
   <section id="hardware">
-    ${sectionTitle("02", `I also build <span class="hl">the machines</span>`)}
+    ${sectionTitle("03", `I also build <span class="hl">the machines</span>`)}
     <div class="hw">
       <div class="hw-count" data-reveal>
         <b data-count="${esc(DATA.hardware.count)}">${esc(DATA.hardware.count)}</b>
@@ -183,7 +203,7 @@ function renderHome() {
   <section id="resume">
     <div class="section-head">
       <div>
-        ${sectionTitle("03", `The <span class="hl">résumé</span>`)}
+        ${sectionTitle("04", `The <span class="hl">résumé</span>`)}
         <p class="section-sub" data-reveal>Experience, skills, and education at a glance.</p>
       </div>
       <div class="cta" data-reveal>
@@ -215,7 +235,7 @@ function renderHome() {
 
   <section class="contact" id="contact">
     <div class="contact-card" data-reveal>
-      <div class="eyebrow">04 — contact</div>
+      <div class="eyebrow">05 — contact</div>
       <h3>Hiring a junior <span class="hl">developer?</span></h3>
       <p>I'm looking for my first full-time role in web development or IT. If you think I'd be a good fit, or just have a question about my work, send me an email.</p>
       <div class="cta">
@@ -229,15 +249,15 @@ function renderHome() {
 }
 
 function renderProject(p) {
-  const i = DATA.projects.indexOf(p);
-  const prev = DATA.projects[i - 1], next = DATA.projects[i + 1];
+  const list = listOf(p), i = list.indexOf(p);
+  const prev = list[i - 1], next = list[i + 1];
   const gallery = p.gallery || [];
   const meta = [["Role", p.role], ["Context", p.context], ["Year", p.year]].filter(([, v]) => v);
   document.title = `${p.title} — ${DATA.name}`;
   app.innerHTML = `
   <article class="detail" style="${colors(p)}">
     <div class="detail-bg" aria-hidden="true"></div>
-    <a class="back" href="#projects" data-back><i>←</i> All projects</a>
+    <a class="back" href="#${sectionOf(p)}" data-back><i>←</i> ${list === DATA.projects ? "All projects" : "Personal projects"}</a>
     <div class="tag">${esc(p.tag)}</div>
     <h1>${esc(p.title)}</h1>
     <p class="summary">${esc(p.summary)}</p>
@@ -247,6 +267,7 @@ function renderProject(p) {
 
     <div class="detail-grid">
       <div class="prose">
+        ${p.motivation ? `<div class="motivation" data-reveal><h3>Why I built it</h3>${p.motivation.map(t => `<p>${esc(t)}</p>`).join("")}</div>` : ""}
         <h3 data-reveal>Overview</h3>
         ${p.overview.map(t => `<p data-reveal>${esc(t)}</p>`).join("")}
         ${p.features.length ? `<h3 data-reveal>What I built</h3>
@@ -256,7 +277,7 @@ function renderProject(p) {
         <h4>Tech stack</h4>
         <div class="chips">${p.tech.map(t => `<span class="chip tech">${esc(t)}</span>`).join("")}</div>
         ${p.code || p.demo ? `<div class="links">
-          ${p.demo ? `<a class="btn primary" ${ext(p.demo)}>Live demo ↗</a>` : ""}
+          ${p.demo ? `<a class="btn primary" ${ext(p.demo)}>${esc(p.demoLabel || "Live demo")} ↗</a>` : ""}
           ${p.code ? `<a class="btn" ${ext(p.code)}>View code ↗</a>` : ""}
         </div>` : ""}
         ${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}
@@ -265,7 +286,7 @@ function renderProject(p) {
 
     ${gallery.length ? `<div class="gallery-wrap">
       <h3 data-reveal>Screenshots</h3>
-      <div class="gallery">${gallery.map((g, n) => `
+      <div class="gallery ${p.phones ? "phone-shots" : ""}">${gallery.map((g, n) => `
         <button class="shot-btn" data-shot="${n}" data-reveal style="--d:${n * .08}" aria-label="Enlarge screenshot: ${esc(g.caption || p.title)}">
           <figure><img src="${esc(g.src)}" alt="${esc(g.caption || p.title)}" loading="lazy">
           ${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ""}</figure>

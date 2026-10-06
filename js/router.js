@@ -11,7 +11,7 @@ let cameFromHome = false;  // lets "All projects" behave like the browser's Back
 
 function projectFromHash() {
   const m = location.hash.match(/^#\/projects\/([\w-]+)/);
-  return m ? DATA.projects.find(p => p.slug === m[1]) : null;
+  return m ? [...DATA.projects, ...DATA.personalProjects].find(p => p.slug === m[1]) : null;
 }
 
 function route() {
