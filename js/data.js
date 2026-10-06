@@ -204,13 +204,20 @@ const DATA = {
       context: "Personal project",
       year: "2026",
       tech: ["Flutter", "Dart", "Material 3", "fl_chart", "Figma"],
-      phones: ["screenshots/workout-tracker/1_planner.png", "screenshots/workout-tracker/3_workout.png", "screenshots/workout-tracker/4_progress.png"],
+      phones: ["screenshots/workout-tracker/02_planner.webp", "screenshots/workout-tracker/01_splash.webp", "screenshots/workout-tracker/04_progress.webp"],
       gallery: [
-        { src: "screenshots/workout-tracker/1_planner.png", caption: "Weekly planner with today's workout, streak, and calendar" },
-        { src: "screenshots/workout-tracker/2_split.png", caption: "Choosing a muscle-group split for the day" },
-        { src: "screenshots/workout-tracker/3_workout.png", caption: "Logging a workout set by set" },
-        { src: "screenshots/workout-tracker/4_progress.png", caption: "Progress charts: workouts per week and heaviest set" },
-        { src: "screenshots/workout-tracker/5_food.png", caption: "Food tracker against daily calorie and macro targets" }
+        { src: "screenshots/workout-tracker/01_splash.webp", caption: "Animated splash screen" },
+        { src: "screenshots/workout-tracker/02_planner.webp", caption: "Weekly planner: today's plan, weekly goal, streak, and calendar" },
+        { src: "screenshots/workout-tracker/03_week.webp", caption: "The week at a glance, with muscle-group icons for each day" },
+        { src: "screenshots/workout-tracker/06_split.webp", caption: "Choosing a muscle-group split for the day" },
+        { src: "screenshots/workout-tracker/08_day_plan.webp", caption: "Adding exercises to each section of the day" },
+        { src: "screenshots/workout-tracker/09_exercises.webp", caption: "Exercise picker, filterable by equipment" },
+        { src: "screenshots/workout-tracker/04_progress.webp", caption: "Progress: totals, workouts per week, and heaviest set per exercise" },
+        { src: "screenshots/workout-tracker/05_food.webp", caption: "Food tracker against daily calorie and macro targets" },
+        { src: "screenshots/workout-tracker/07_food_day.webp", caption: "Logging breakfast, lunch, dinner, and snacks" },
+        { src: "screenshots/workout-tracker/10_daily_guide.webp", caption: "Daily guide: how the targets are calculated, step by step" },
+        { src: "screenshots/workout-tracker/11_profile.webp", caption: "Edit profile: body stats, activity level, and goals" },
+        { src: "screenshots/workout-tracker/12_bmi.webp", caption: "Live BMI readout that updates as you edit" }
       ],
       // TODO: rewrite in your own words if this isn't quite your reason
       motivation: [

@@ -89,4 +89,4 @@
 
 /* Portrait (phone) screenshots */
 .gallery.phone-shots { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
-.gallery.phone-shots .shot-btn img { aspect-ratio: 540 / 1170; object-fit: cover; object-position: top; }
+.gallery.phone-shots .shot-btn img { aspect-ratio: 912 / 1892; object-fit: cover; object-position: top; }

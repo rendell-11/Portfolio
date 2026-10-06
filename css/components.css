@@ -224,7 +224,7 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
     radial-gradient(ellipse 60% 70% at 50% 40%, color-mix(in srgb, var(--pc) 40%, transparent), transparent 70%),
     #0d0d10;
   border-color: transparent; }
-.phones-cover .phone { width: 22cqi; aspect-ratio: 540 / 1170; flex: none; padding: .9cqi; border-radius: 3.4cqi; background: #1d1d22;
+.phones-cover .phone { width: 22cqi; aspect-ratio: 912 / 1892; flex: none; padding: .9cqi; border-radius: 3.4cqi; background: #1d1d22;
   box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 3cqi 6cqi -2cqi rgba(0,0,0,.7); transform: translateY(9cqi);
   transition: transform .6s var(--ease); }
 .phones-cover .phone:nth-child(2) { transform: translateY(4cqi); z-index: 1; }
