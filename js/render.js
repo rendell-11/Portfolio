@@ -126,7 +126,7 @@ function renderHome() {
   document.title = `${DATA.name} — ${DATA.role}`;
   const words = DATA.name.split(" ");
   const last = words.pop();
-  const marquee = [...DATA.skills["Web Development"], ...DATA.skills["Programming & Game Dev"]];
+  const marquee = [...DATA.skills["Web Development"], ...DATA.skills["Mobile Development"], ...DATA.skills["Programming & Game Dev"]];
 
   app.innerHTML = `
   <header class="hero">

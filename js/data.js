@@ -52,6 +52,7 @@ const DATA = {
 
   skills: {
     "Web Development": ["PHP", "MySQL", "JavaScript", "ReactJS", "HTML", "CSS", "XAMPP", "VS Code"],
+    "Mobile Development": ["Flutter", "Dart", "React Native", "Expo", "TypeScript", "Node.js", "Material 3", "fl_chart", "Claude API", "Jest", "Figma"],
     "Programming & Game Dev": ["C#", "C++", "Python", "Unity", "Blender"],
     "IT Support": ["Hardware troubleshooting", "Software troubleshooting", "Workstation setup", "Desktop assembly", "RAM/SSD upgrades", "SSD reformatting", "Cable management"]
   },
@@ -316,7 +317,7 @@ const DATA = {
       role: "Solo developer",
       context: "Personal project",
       year: "2026",
-      tech: ["React Native", "Expo", "TypeScript", "Claude API", "Jest"],
+      tech: ["React Native", "Expo", "TypeScript", "Node.js", "Claude API", "Jest"],
       wordmark: "voicenote",
       logo: "screenshots/voicenote/icon.png", logoBg: "#f5f3ea",
       phones: ["screenshots/voicenote/02_home.webp", "screenshots/voicenote/01_splash.webp", "screenshots/voicenote/05_dictating.webp"],
