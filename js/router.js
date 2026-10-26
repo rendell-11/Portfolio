@@ -1,11 +1,12 @@
 /* ============================================================
-   ROUTER — switches between the home page and project pages.
-   Project pages live at  #/projects/<slug>  so each one has its
-   own shareable link and the browser's Back button works.
+   ROUTER — switches between the home page, project pages, and
+   the CV. Project pages live at  #/projects/<slug>  and the CV at
+   #/cv, so each one has its own shareable link and the browser's
+   Back button works.
    ============================================================ */
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
-let current = null;        // "home" or a project slug
+let current = null;        // "home", "cv", or a project slug
 let homeScroll = 0;        // where to return to on the home page
 let cameFromHome = false;  // lets "All projects" behave like the browser's Back button
 
@@ -16,7 +17,8 @@ function projectFromHash() {
 
 function route() {
   const project = projectFromHash();
-  const next = project ? project.slug : "home";
+  const cv = /^#\/cv$/.test(location.hash);
+  const next = project ? project.slug : cv ? "cv" : "home";
   if (next === current) return;   // same page: the browser handles #section jumps
   const prev = current;
   const returning = next === "home" && cameFromHome;   // coming back from a project we opened from home
@@ -25,11 +27,11 @@ function route() {
 
   const update = () => {
     current = next;
-    project ? renderProject(project) : renderHome();
+    project ? renderProject(project) : cv ? renderCV() : renderHome();
     mountEffects();
-    const target = !project && !returning && location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    const target = next === "home" && !returning && location.hash.length > 1 && document.getElementById(location.hash.slice(1));
     if (target) target.scrollIntoView({ behavior: "instant" });
-    else scrollTo({ top: project ? 0 : homeScroll, behavior: "instant" });
+    else scrollTo({ top: next === "home" ? homeScroll : 0, behavior: "instant" });
   };
 
   if (!prev || reduceMotion.matches) return update();

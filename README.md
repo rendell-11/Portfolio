@@ -11,6 +11,7 @@ Personal portfolio site for **John Rendell L. Fuerte**, Junior Full Stack Develo
 - 3D tilting project cards, scroll-reveal animations, and count-up stats
 - Smooth animated transitions between the project list and project pages (View Transitions API, with a fallback)
 - Résumé section with a downloadable PDF
+- CV page (`#/cv`) that turns the same content into a printable A4 résumé (Print / Save as PDF)
 - Light / dark mode that remembers the visitor's choice
 - Responsive layout for desktop and mobile
 - No frameworks or build step — plain HTML, CSS, and JavaScript
@@ -26,6 +27,7 @@ Personal portfolio site for **John Rendell L. Fuerte**, Junior Full Stack Develo
 │   ├── components.css  Nav, buttons, chips, project covers, lightbox
 │   ├── home.css        Hero, project cards, résumé, contact
 │   ├── project.css     Project detail page
+│   ├── cv.css          CV page (#/cv) and its print / Save as PDF layout
 │   └── animations.css  Page transitions and reduced-motion support
 ├── js/
 │   ├── data.js         All site content — edit this to update the site
@@ -72,6 +74,10 @@ Personal projects go in `DATA.personalProjects` and use the same fields, plus:
 - `motivation`: paragraphs for the "Why I built it" box on the project page
 - `phones`: up to 3 portrait phone screenshots shown side by side on the cover
 - `demoLabel`: text for the demo button (defaults to "Live demo")
+
+## Updating the résumé PDF
+
+`resume.pdf` is exported from the CV page, so it matches `data.js`. After editing your content, open `index.html#/cv`, click **Print / Save as PDF**, choose "Save as PDF" (A4, headers and footers off), and save over `resume.pdf`.
 
 ## Running locally
 

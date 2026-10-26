@@ -126,7 +126,7 @@ function renderHome() {
   document.title = `${DATA.name} — ${DATA.role}`;
   const words = DATA.name.split(" ");
   const last = words.pop();
-  const marquee = [...DATA.skills["Web Development"], ...DATA.skills["Mobile Development"], ...DATA.skills["Programming & Game Dev"]];
+  const marquee = Object.entries(DATA.skills).filter(([group]) => group !== "IT Support").flatMap(([, items]) => items);
 
   app.innerHTML = `
   <header class="hero">
@@ -145,7 +145,7 @@ function renderHome() {
       <div class="loc" data-in style="--d:.5">📍 ${esc(DATA.location)}</div>
       <div class="cta" data-in style="--d:.6">
         <a class="btn primary" href="#projects">View my projects →</a>
-        <a class="btn" href="#resume">See my resume</a>
+        <a class="btn" href="#/cv">View my CV</a>
         <a class="btn" ${ext(DATA.github)}>GitHub ↗</a>
       </div>
     </div>
@@ -207,8 +207,8 @@ function renderHome() {
         <p class="section-sub" data-reveal>Experience, skills, and education at a glance, plus my cover letter.</p>
       </div>
       <div class="cta" data-reveal>
-        <a class="btn primary" href="${esc(DATA.resume)}" download>Download résumé ↓</a>
-        <a class="btn" ${ext(DATA.resume)}>View résumé</a>
+        <a class="btn primary" href="#/cv">View as CV →</a>
+        <a class="btn" href="${esc(DATA.resume)}" download>Download résumé ↓</a>
         ${DATA.coverLetter ? `<a class="btn" ${ext(DATA.coverLetter)}>Cover letter ↗</a>` : ""}
       </div>
     </div>
@@ -249,6 +249,98 @@ function renderHome() {
   </section>`;
 }
 
+/* ---------- CV page (#/cv) ----------
+   A one-document résumé built from the same DATA as the rest of the site,
+   styled like a printed page. "Print / Save as PDF" uses css/cv.css's print rules. */
+const bare = href => url(href).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+
+const cvEntry = e => `
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <h4>${esc(e.title)}</h4>
+      ${e.date ? `<span class="cv-date">${esc(e.date)}</span>` : ""}
+    </div>
+    <div class="cv-org">${esc(e.org)}</div>
+    ${e.points.length ? `<ul>${e.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>` : ""}
+  </div>`;
+
+const cvProject = p => `
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <h4><a href="${esc(DATA.website)}#/projects/${p.slug}">${esc(p.title)}</a></h4>
+      ${p.year ? `<span class="cv-date">${esc(p.year)}</span>` : ""}
+    </div>
+    <div class="cv-org">${esc([p.role, p.context].filter(Boolean).join(" · "))}</div>
+    ${p.cvPoints ? `<ul>${p.cvPoints.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : `<p>${esc(p.summary)}</p>`}
+    <p class="cv-tech">${esc(p.tech.join(" · "))}</p>
+  </div>`;
+
+function renderCV() {
+  document.title = `CV — ${DATA.name}`;
+  const contacts = [
+    ["Email", DATA.email, `mailto:${DATA.email}`],
+    ["Phone", DATA.phone, DATA.phone && `tel:+63${DATA.phone.replace(/\D/g, "").replace(/^0/, "")}`],
+    ["Location", DATA.location],
+    ["LinkedIn", bare(DATA.linkedin), DATA.linkedin],
+    ["GitHub", bare(DATA.github), DATA.github],
+    ["Portfolio", bare(DATA.website), DATA.website]
+  ].filter(([, v]) => v);
+
+  app.innerHTML = `
+  <div class="cv-page">
+    <div class="cv-toolbar">
+      <a class="back" href="#resume" data-back><i>←</i> Back to portfolio</a>
+      <div class="cv-actions">
+        <button class="btn primary" type="button" onclick="print()">Print / Save as PDF</button>
+        <a class="btn" href="${esc(DATA.resume)}" download>Download résumé ↓</a>
+      </div>
+    </div>
+
+    <article class="cv-paper" aria-label="Curriculum vitae">
+      <header class="cv-header">
+        <img class="cv-photo" src="${esc(DATA.photo)}" alt="Portrait of ${esc(DATA.name)}">
+        <div>
+          <h1>${esc(DATA.name)}</h1>
+          <p class="cv-role">${esc(DATA.role)}</p>
+          <ul class="cv-contact">${contacts.map(([k, v, href]) => `
+            <li><span>${k}</span>${href ? `<a ${/^(mailto|tel):/.test(href) ?`href="${esc(href)}"` : ext(href)}>${esc(v)}</a>` : esc(v)}</li>`).join("")}
+          </ul>
+        </div>
+      </header>
+
+      <section class="cv-section cv-profile">
+        <h3>Profile</h3>
+        ${DATA.about.map(p => `<p>${esc(p)}</p>`).join("")}
+      </section>
+
+      <div class="cv-cols">
+        <div class="cv-main">
+          <section class="cv-section">
+            <h3>Experience</h3>
+            ${DATA.experience.map(cvEntry).join("")}
+          </section>
+          <section class="cv-section">
+            <h3>Projects</h3>
+            ${[...DATA.projects, ...DATA.personalProjects].filter(p => p.onCV !== false).map(cvProject).join("")}
+          </section>
+        </div>
+
+        <aside class="cv-side">
+          <section class="cv-section">
+            <h3>Education</h3>
+            ${DATA.education.map(cvEntry).join("")}
+          </section>
+          <section class="cv-section">
+            <h3>Skills</h3>
+            ${Object.entries(DATA.skills).map(([group, items]) => `
+              <div class="cv-skill"><h4>${esc(group)}</h4><p>${items.map(esc).join(" · ")}</p></div>`).join("")}
+          </section>
+        </aside>
+      </div>
+    </article>
+  </div>`;
+}
+
 function renderProject(p) {
   const list = listOf(p), i = list.indexOf(p);
   const prev = list[i - 1], next = list[i + 1];
@@ -287,6 +379,7 @@ function renderProject(p) {
 
     ${gallery.length ? `<div class="gallery-wrap">
       <h3 data-reveal>Screenshots</h3>
+      ${p.galleryNote ? `<p class="gallery-note" data-reveal>${esc(p.galleryNote)}</p>` : ""}
       ${[...new Set(gallery.map(g => g.group || ""))].map(group => `
         ${group ? `<h4 class="gallery-group" data-reveal>${esc(group)}</h4>` : ""}
         <div class="gallery ${p.phones ? "phone-shots" : ""}">${gallery.map((g, n) => (g.group || "") !== group ? "" : `

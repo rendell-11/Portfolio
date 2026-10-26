@@ -11,7 +11,9 @@ const DATA = {
   location: "Quezon City, Philippines",
   email: "fuertejohnrendell@gmail.com",
   github: "https://github.com/rendell-11",
-  linkedin: "www.linkedin.com/in/john-rendell-fuerte-5396b723b",   // TODO: confirm this URL
+  linkedin: "https://www.linkedin.com/in/johnrendell-fuerte",
+  phone: "0961 504 8679",   // shown on the CV page only (leave "" to hide)
+  website:"https://rendell-11.github.io/Portfolio/",   // shown on the CV page
   resume: "resume.pdf",   // put your PDF next to index.html with this name
   coverLetter: "cover-letter.pdf",   // leave "" to hide the cover letter button
   photo: "images/profile.jpg",   // your portrait in the hero (a larger photo will look sharper)
@@ -32,8 +34,8 @@ const DATA = {
   ],
 
   about: [
-    "I'm a recent BS Information Technology graduate from the Technological Institute of the Philippines with hands-on experience in full-stack development, IT support, database management, and hardware deployment.",
-    "During my internship at J-K Network Services, I independently designed and built the company's internal Inventory & Asset Management System and configured 19 workstations for employee deployment. I enjoy teaching myself new technologies and taking projects from concept all the way to completion."
+    "Web developer and 2026 IT graduate from TIP Quezon City. As an intern at J-K Network Services, I built the company's inventory and asset management system on my own, from database to UI, and it's still in use today.",
+    "I also set up 19 employee workstations and handled daily IT support. I work with PHP, MySQL, and JavaScript, and I pick up new tools fast when a project needs them. I taught myself Unity to build my capstone game."
   ],
 
   // "I also build the machines" section (from your internship)
@@ -51,10 +53,13 @@ const DATA = {
   },
 
   skills: {
-    "Web Development": ["PHP", "MySQL", "JavaScript", "ReactJS", "HTML", "CSS", "XAMPP", "VS Code"],
-    "Mobile Development": ["Flutter", "Dart", "React Native", "Expo", "TypeScript", "Node.js", "Material 3", "fl_chart", "Claude API", "Jest", "Figma"],
-    "Programming & Game Dev": ["C#", "C++", "Python", "Unity", "Blender"],
-    "IT Support": ["Hardware troubleshooting", "Software troubleshooting", "Workstation setup", "Desktop assembly", "RAM/SSD upgrades", "SSD reformatting", "Cable management"]
+    "Languages": ["PHP", "JavaScript", "TypeScript", "Dart", "C#", "C++", "Python", "SQL", "HTML", "CSS"],
+    "Web Development": ["ReactJS", "Node.js", "MySQL", "XAMPP"],
+    "Mobile Development": ["Flutter", "React Native", "Expo", "Material 3", "fl_chart"],
+    "Game Development": ["Unity", "Blender"],
+    "Testing & AI": ["Jest", "Claude API"],
+    "Tools": ["Git/GitHub", "Visual Studio Code", "Figma"],
+    "IT Support": ["Desktop assembly", "Hardware & software troubleshooting", "RAM/SSD upgrades", "OS installation", "Workstation setup"]
   },
 
   /* ---------- TOP PROJECTS ----------
@@ -68,9 +73,12 @@ const DATA = {
      - logo / logoBg: project logo shown on the card and at the top of the project page, and the color behind it
      - image:    cover screenshot (used when there's no logo), e.g. "screenshots/inventory/cover.png" (leave "" for a placeholder)
      - gallery:  extra screenshots shown on the project page, each { src, caption }
+     - galleryNote: optional note shown above the screenshots (e.g. a dummy-data disclaimer)
      - overview: paragraphs for the project page
      - features: bullet points for "What I built"
      - code / demo: links (leave "" to hide)
+     - cvPoints: bullet points used for this project on the CV page (falls back to summary)
+     - onCV:     set to false to leave a project off the CV page
   */
   projects: [
     {
@@ -82,22 +90,27 @@ const DATA = {
       summary: "Internal PHP/MySQL system for J-K Network Services that centralizes IT asset and administrative data — built solo, end to end.",
       role: "Solo developer",
       context: "Internship — J-K Network Services",
-      year: "",   // TODO: e.g. "2026"
+      year: "2026",
+      onCV: false,   // already covered under Experience on the CV
       tech: ["PHP", "MySQL", "HTML", "CSS", "XAMPP"],
       wordmark: "itadmin",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/inventory/logo.png", logoBg: "#03122b",   // shown on the card and project header
       image: "screenshots/inventory/peripherals.webp",
+      galleryNote: "Disclaimer: all data shown in these screenshots (names, accounts, passwords, IP addresses, and serial keys) is dummy data entered for demonstration. It does not belong to real people and is not real credentials.",
       gallery: [
-        { src: "screenshots/inventory/peripherals.webp", caption: "Computer Peripherals: deployed-device totals and storage stock per department" },
-        { src: "screenshots/inventory/seat-plan.webp", caption: "Seat Plan Arrangement: workstation layout by department with occupied/vacant counts" },
+        { src: "screenshots/inventory/login.webp", caption: "IT Admin login" },
+        { src: "screenshots/inventory/peripherals.webp", caption: "Computer Peripherals: deployed-device totals and auto-computed storage stock" },
         { src: "screenshots/inventory/admin-users.webp", caption: "Admin Users: workstation users grouped by department" },
-        { src: "screenshots/inventory/specs.webp", caption: "Computer Specifications: processor, RAM, storage, and OS per unit, with completed/incomplete counts" },
-        { src: "screenshots/inventory/purchases.webp", caption: "Computer Purchases: purchase dates and remarks per unit" },
-        { src: "screenshots/inventory/cleaning.webp", caption: "Computer Cleaning: maintenance checklist per device and part" },
+        { src: "screenshots/inventory/seat-plan.webp", caption: "Seat Plan Arrangement: workstation layout by department with occupied/vacant counts" },
         { src: "screenshots/inventory/trend-micro.webp", caption: "Trend Micro Tracker: antivirus license status and expiry, filterable by department" },
+        { src: "screenshots/inventory/purchases.webp", caption: "Computer Purchases: purchase dates and remarks per unit" },
+        { src: "screenshots/inventory/specs.webp", caption: "Computer Specifications: processor, motherboard, BIOS, and RAM per unit, with completed/incomplete counts" },
+        { src: "screenshots/inventory/cleaning.webp", caption: "Computer Cleaning: maintenance checklist per device and part" },
         { src: "screenshots/inventory/access-cards.webp", caption: "Access Card Tracker: keycards, access levels, and active/returned/vacant status" },
+        { src: "screenshots/inventory/it-logs.webp", caption: "IT Logs Issue Tracker: reported issues by category, priority, resolution, and SLA target" },
         { src: "screenshots/inventory/internet.webp", caption: "Internet Details: ISP accounts, network monitoring, and configuration records" },
-        { src: "screenshots/inventory/user-accounts.png", caption: "User accounts with Super Admin / Sub Admin roles" }
+        { src: "screenshots/inventory/new-page.webp", caption: "New Page: spreadsheet-style custom page with fonts, fills, merge, and dropdowns" },
+        { src: "screenshots/inventory/user-accounts.webp", caption: "User accounts with Super Admin / Sub Admin roles" }
       ],
       overview: [
         "J-K Network Services needed one place to keep track of its IT assets and administrative records. During my internship I independently designed and developed an internal Inventory & Asset Management System to centralize that data.",
@@ -124,9 +137,13 @@ const DATA = {
       tag: "Academic · Game",
       title: "MathPlusTBS — Unity Educational Game",
       summary: "An educational math game built in Unity and C#. I led development and taught myself Unity from scratch to ship it.",
-      role: "Lead developer",
-      context: "Academic project — TIP",
+      role: "Team lead",
+      context: "Capstone project — TIP",
       year: "",
+      cvPoints: [
+        "Led the team and built most of the game myself, with no prior game development experience. I learned Unity during the project.",
+        "Built the gameplay logic, 3D environments, and interactive features, and delivered a finished, playable game."
+      ],
       tech: ["Unity", "C#", "Blender"],
       wordmark: "mathplus",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/mathplustbs/logo-clean.png", logoBg: "#000000",   // shown on the card and project header
@@ -191,9 +208,13 @@ const DATA = {
       tag: "Academic · Web",
       title: "Web-Based E-Commerce System",
       summary: "GG-EZ, a full-stack online store for gaming gear and electronics, with a customer shop and a full admin panel.",
-      role: "Full-stack developer",
-      context: "Academic project — TIP",
+      role: "Team lead",
+      context: "3rd-year project — TIP",
       year: "",
+      cvPoints: [
+        "Built a full-stack online store for computers and electronics, including product listings, a shopping cart and checkout, and an admin panel.",
+        "Coordinated tasks, deadlines, and testing for the team, and helped teammates get past coding problems."
+      ],
       tech: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
       wordmark: "ggez",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/ecommerce/logo.png", logoBg: "#07080c",   // shown on the card and project header
@@ -266,6 +287,9 @@ const DATA = {
       role: "Solo developer & designer",
       context: "Personal project",
       year: "2026",
+      cvPoints: [
+        "Designed in Figma and built an Android app for planning a weekly training split, logging workouts set by set, tracking progress with charts, and hitting daily nutrition targets."
+      ],
       tech: ["Flutter", "Dart", "Material 3", "fl_chart", "Figma"],
       phones: ["screenshots/workout-tracker/02_planner.webp", "screenshots/workout-tracker/01_splash.webp", "screenshots/workout-tracker/04_progress.webp"],
       gallery: [
@@ -317,6 +341,10 @@ const DATA = {
       role: "Solo developer",
       context: "Personal project",
       year: "2026",
+      cvPoints: [
+        "Built a mobile notes app where users speak their thoughts and an optional AI assistant (Claude API) summarizes them, suggests a title, and pulls out to-dos.",
+        "Built it to learn TypeScript, React Native, and Expo outside my usual PHP stack, with unit tests in Jest."
+      ],
       tech: ["React Native", "Expo", "TypeScript", "Node.js", "Claude API", "Jest"],
       wordmark: "voicenote",
       logo: "screenshots/voicenote/icon.png", logoBg: "#f5f3ea",
@@ -357,13 +385,13 @@ const DATA = {
     {
       title: "Full Stack Developer / IT Support Intern",
       org: "J-K Network Services",
-      date: "",   // TODO: add dates, e.g. "Feb 2026 – May 2026"
+      date: "Jan 2026 – Apr 2026",
       points: [
-        "Independently designed and developed an internal Inventory & Asset Management System end to end — database, UI, back-end logic, and data management.",
-        "Built full-stack features with PHP, MySQL, HTML, CSS, and XAMPP to support IT operations and company record management.",
-        "Diagnosed and resolved employee hardware, software, OS, device, and workstation performance issues.",
-        "Assembled, upgraded, configured, and deployed 19 desktop workstations, including RAM/SSD upgrades, reformatting, software installs, and cable management.",
-        "Produced technical documentation and digital/print design assets for the company."
+        "Built the company's internal inventory and IT asset management system on my own. I designed the MySQL database, wrote the PHP back end, and built the HTML/CSS interface. The system is still in use.",
+        "The system centralizes IT asset and administrative records that were previously scattered across spreadsheets.",
+        "Assembled, configured, and deployed 19 desktop workstations, including RAM/SSD upgrades, SSD reformatting, software installs, and cable management.",
+        "Provided daily IT support to employees, fixing hardware faults, software errors, OS problems, and slow machines.",
+        "Wrote technical documentation and designed print and digital materials for the company."
       ]
     },
     {
@@ -371,19 +399,9 @@ const DATA = {
       org: "Alpha Iota — Malaysia (Remote)",
       date: "Sep 2021 – Mar 2022",
       points: [
-        "Managed and maintained company data across spreadsheets and digital systems.",
-        "Verified records for accuracy, completeness, and consistency.",
-        "Supported administrative operations, documentation, and digital record organization."
-      ]
-    },
-    {
-      title: "Team Lead, Academic Software Projects",
-      org: "Technological Institute of the Philippines",
-      date: "",
-      points: [
-        "Led multiple student development teams from planning through final delivery.",
-        "Coordinated task assignments, deadlines, testing, documentation, and presentations.",
-        "Unblocked teammates on technical and coding issues to keep projects on schedule."
+        "Set up and managed about 150 online platform accounts per day inside a secure virtual machine environment, following strict credential-handling procedures.",
+        "Regularly finished my daily batch early and took on additional accounts to increase output.",
+        "Entered each account into timed overnight queuing events and earned commission on successful results."
       ]
     }
   ],

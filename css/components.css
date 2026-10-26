@@ -22,6 +22,7 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 }
 .theme-btn:hover { transform: rotate(180deg); border-color: var(--accent); }
 @media (max-width: 480px) { .nav-links { gap: 0; } .nav-links a { font-size: 13px; padding: 6px 8px; } }
+@media (max-width: 420px) { .nav-links .nav-optional { display: none; } }   /* keeps the nav on one line on phones */
 
 /* Reading progress bar under the nav */
 .progress {
