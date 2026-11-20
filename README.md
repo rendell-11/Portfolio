@@ -2,7 +2,7 @@
 
 Personal portfolio site for **John Rendell L. Fuerte**, Junior Full Stack Developer and 2026 BS Information Technology graduate.
 
-**Live site:** https://rendell-11.github.io
+**Live site:** https://rendell-11.github.io/Portfolio/
 
 ## Features
 

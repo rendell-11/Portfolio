@@ -7,7 +7,7 @@ const DATA = {
   name: "John Rendell L. Fuerte", 
   short: "Rendell",
   role: "Junior Full Stack Developer",
-  tagline: "BS Information Technology graduate with experience in full-stack web development, full stack mobile application, Unity games, database management, UI/UX design, and IT support, creating practical digital solutions from backend logic to user interface.",
+  tagline: "2026 BSIT graduate who builds working systems end to end, from the database to the screen. My internship inventory system is still used by the company today.",
   location: "Quezon City, Philippines",
   email: "fuertejohnrendell@gmail.com",
   github: "https://github.com/rendell-11",
@@ -19,7 +19,7 @@ const DATA = {
   photo: "images/profile.jpg",   // your portrait in the hero (a larger photo will look sharper)
 
   // Hero extras
-  status: "Open to Junior Full Stack roles",   // shown in the green "available" badge
+  status: "Open to junior developer roles",   // shown in the green "available" badge
   typed: [                                      // phrases the hero types out after "I build…"
     "Full-stack Web Systems.",
     "Inventory & Asset tools.",
@@ -28,7 +28,7 @@ const DATA = {
   ],
 
   stats: [
-    { value: "3", label: "Full stack & game projects shipped" },
+    { value: "5", label: "Web, mobile & game projects built" },
     { value: "19", label: "Workstations built & deployed" },
     { value: "2026", label: "BSIT Graduate, TIP Quezon City" }
   ],
@@ -136,7 +136,7 @@ const DATA = {
       short: "MathPlusTBS",
       tag: "Academic · Game",
       title: "MathPlusTBS — Unity Educational Game",
-      summary: "An educational math game built in Unity and C#. I led development and taught myself Unity from scratch to ship it.",
+      summary: "An educational quantitative-math game in Unity and C#, from algebra up to Simplex and Duality. I led development and taught myself Unity from scratch to ship it.",
       role: "Team lead",
       context: "Capstone project — TIP",
       year: "",
@@ -190,7 +190,7 @@ const DATA = {
         "Modeled 3D assets in Blender",
         "Designed the game environments in Unity: a dungeon, grassland, desert, treasure room, and lava world",
         "Built the interactive features that tie the math content to gameplay",
-        "Math topics (Basic Algebra and Fractions) with levels that unlock as you progress",
+        "Math topics from Basic Algebra and Fractions up to linear programming (Simplex, Two-Phase, and Duality methods), with levels that unlock as you progress",
         "Story cutscenes and NPC dialogue that introduce each topic",
         "Clues, chalkboard lessons, and puzzles that unlock gates",
         "Four playable character classes: Warrior, Archer, Mage, and Assassin",
@@ -207,15 +207,15 @@ const DATA = {
       short: "E-Commerce",
       tag: "Academic · Web",
       title: "Web-Based E-Commerce System",
-      summary: "GG-EZ, a full-stack online store for gaming gear and electronics, with a customer shop and a full admin panel.",
+      summary: "GG-EZ, a full-stack online store for gaming gear with Stripe and PayPal checkout, Google sign-in, an admin panel, and a courier portal.",
       role: "Team lead",
       context: "3rd-year project — TIP",
       year: "",
       cvPoints: [
-        "Built a full-stack online store for computers and electronics, including product listings, a shopping cart and checkout, and an admin panel.",
+        "Built a full-stack online store for gaming gear with Stripe and PayPal checkout, Google sign-in (OAuth 2.0), an admin panel, and a courier portal.",
         "Coordinated tasks, deadlines, and testing for the team, and helped teammates get past coding problems."
       ],
-      tech: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+      tech: ["PHP", "MySQL", "JavaScript", "Stripe", "PayPal", "Google OAuth", "FPDF"],
       wordmark: "ggez",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/ecommerce/logo.png", logoBg: "#07080c",   // shown on the card and project header
       image: "screenshots/ecommerce/home.png",
@@ -243,15 +243,18 @@ const DATA = {
         { group: "Admin side", src: "screenshots/ecommerce/admin/17-update-profile.webp", caption: "Admin profile and password update" }
       ],
       overview: [
-        "A full-stack e-commerce website for selling computers and electronic devices.",
+        "A full-stack e-commerce website for selling gaming gear and peripherals, with three portals: a customer storefront, an admin dashboard, and a courier portal.",
         "It covers the essentials of an online store: browsable product listings, front-end interfaces, a database behind the catalog, and the core purchasing flow.",
         "Behind the store is a full admin panel for running the business: managing orders and deliveries, products and categories, promotions, customer messages, and admin accounts with role-based access, with every admin action recorded in an activity log."
       ],
       features: [
-        "Product listings for computers and electronic devices",
+        "Product listings with categories, search, and quick view",
         "Front-end interfaces built with HTML, CSS, and JavaScript",
         "MySQL database integration through a PHP back end",
-        "Core purchasing functionality: cart, wishlist, and order history",
+        "Online payments through Stripe and PayPal checkout",
+        "Sign in with Google (OAuth 2.0) alongside regular account registration",
+        "Core purchasing functionality: cart, wishlist, saved addresses, and order history",
+        "Order tracking (to ship, to receive, delivered), reorder, and return requests",
         "Shop page with price-range and category filters",
         "Admin dashboard with store stats, inventory alerts, newest users, and most viewed products",
         "Order management: payment status updates and cancellation and refund requests",
@@ -261,10 +264,10 @@ const DATA = {
         "Product management: add, update, archive, and restore products by category",
         "Marketing tools: image and video promotions and discounts",
         "Customer feedback inbox and product comments",
-        "Sales reports with a sales-over-time chart, a sales calendar, and PDF export"
+        "Sales reports with a sales-over-time chart, a sales calendar, and PDF export (FPDF)"
       ],
       note: "",
-      code: "", demo: ""
+      code: "https://github.com/rendell-11/ggezports", demo: ""
     }
   ],
 
@@ -283,7 +286,7 @@ const DATA = {
       tag: "Personal · Mobile",
       title: "Workout Tracker — Flutter Fitness App",
       summary: "An Android app for planning a weekly training split, logging workouts set by set, tracking progress, and hitting daily nutrition targets.",
-      why: "I wanted one app that fits the way I actually train, and a reason to learn Flutter.",   // TODO: confirm in your own words
+      why: "I wanted one app that fits the way I actually train, and a reason to learn Flutter.",
       role: "Solo developer & designer",
       context: "Personal project",
       year: "2026",
@@ -306,11 +309,10 @@ const DATA = {
         { src: "screenshots/workout-tracker/11_profile.webp", caption: "Edit profile: body stats, activity level, and goals" },
         { src: "screenshots/workout-tracker/12_bmi.webp", caption: "Live BMI readout that updates as you edit" }
       ],
-      // TODO: rewrite in your own words if this isn't quite your reason
       motivation: [
-        "I go for regular exercise, but one problem I have always had is forgetting where I am at specifically, how many times I usually do each workouts, how heavy the weights are, and in what order I do them. As a result my workouts often seemed unorganized and irregular. I had difficulty in keeping track of both the number of calories and the amount of protein that I intake, which made it harder for me to stick to my fitness goals.",
-        "Instead of considering another workout app I decided to make my own. I wanted one that matched the way I actually workout, to plan my workout schedule, record each set, track both the weight and the number of times I lift, keep an eye on what I eat, and check whether I am improving over time.",
-        "It also provided me with a means of continuing to improve my coding skills after I had graduated from school. I designed all the parts of the app using Figma and then enhance myself in Flutter and Dart to make the app function and turn it into a real one."
+        "I exercise regularly, but I kept forgetting where I was: how many reps I usually do for each exercise, how heavy the weights were, and what order I did them in. My workouts felt unorganized. I also had trouble tracking my calories and protein, which made it harder to stick to my fitness goals.",
+        "Instead of trying another workout app, I decided to make my own. I wanted one that matches the way I actually train: plan my weekly schedule, record each set, track the weight and reps, keep an eye on what I eat, and see whether I'm improving over time.",
+        "It was also a way to keep improving my coding skills after graduation. I designed every screen in Figma first, then learned Flutter and Dart to turn the design into a working app."
       ],
       overview: [
         "Workout Tracker is a Flutter app for planning a weekly training split, logging workouts set by set, tracking progress over time, and keeping a food log.",
@@ -399,9 +401,9 @@ const DATA = {
       org: "Alpha Iota — Malaysia (Remote)",
       date: "Sep 2021 – Mar 2022",
       points: [
-        "Set up and managed about 150 online platform accounts per day inside a secure virtual machine environment, following strict credential-handling procedures.",
-        "Regularly finished my daily batch early and took on additional accounts to increase output.",
-        "Entered each account into timed overnight queuing events and earned commission on successful results."
+        "Handled data entry and record management for about 150 accounts per day for a remote client, working inside a secure virtual machine environment.",
+        "Followed strict data-handling and security procedures to keep client information accurate and protected.",
+        "Regularly finished my daily batch ahead of schedule and took on extra work to increase output."
       ]
     }
   ],
