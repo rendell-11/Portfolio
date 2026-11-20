@@ -4,10 +4,10 @@
    ============================================================ */
 
 const DATA = {
-  name: "John Rendell L. Fuerte", 
+  name: "John Rendell L. Fuerte",
   short: "Rendell",
   role: "Junior Full Stack Developer",
-  tagline: "2026 BSIT graduate who builds working systems end to end, from the database to the screen. My internship inventory system is still used by the company today.",
+  tagline: "I'm a fresh IT graduate from TIP Quezon City. I like building systems people actually use. The inventory system I made during my internship is still running at the company.",
   location: "Quezon City, Philippines",
   email: "fuertejohnrendell@gmail.com",
   github: "https://github.com/rendell-11",
@@ -21,34 +21,34 @@ const DATA = {
   // Hero extras
   status: "Open to junior developer roles",   // shown in the green "available" badge
   typed: [                                      // phrases the hero types out after "I build…"
-    "Full-stack Web Systems.",
-    "Inventory & Asset tools.",
-    "Unity games with C#.",
-    "Things that work end to end."
+    "web systems in PHP & MySQL.",
+    "inventory and asset tools.",
+    "Unity games in C#.",
+    "mobile apps in Flutter."
   ],
 
   stats: [
-    { value: "5", label: "Web, mobile & game projects built" },
-    { value: "19", label: "Workstations built & deployed" },
-    { value: "2026", label: "BSIT Graduate, TIP Quezon City" }
+    { value: "5", label: "Projects I've built" },
+    { value: "19", label: "PCs I built and set up" },
+    { value: "2026", label: "BSIT graduate, TIP Quezon City" }
   ],
 
   about: [
-    "Web developer and 2026 IT graduate from TIP Quezon City. As an intern at J-K Network Services, I built the company's inventory and asset management system on my own, from database to UI, and it's still in use today.",
-    "I also set up 19 employee workstations and handled daily IT support. I work with PHP, MySQL, and JavaScript, and I pick up new tools fast when a project needs them. I taught myself Unity to build my capstone game."
+    "Hi, I'm Rendell. I graduated with a BSIT degree from TIP Quezon City in 2026. During my internship at J-K Network Services, I built their inventory and asset management system by myself, from the database up to the screens. They still use it today.",
+    "I also built and set up 19 computers for the staff and helped with IT problems around the office. I mostly work with PHP, MySQL, and JavaScript, but I don't mind learning something new when a project needs it. I learned Unity from zero just to build our capstone game."
   ],
 
   // "I also build the machines" section (from your internship)
   hardware: {
     count: "19",
-    label: "desktop workstations built & deployed",
+    label: "desktop PCs built and set up",
     where: "J-K Network Services internship",
-    intro: "Not all of my work lives in a code editor. During my internship I also handled the hardware side: getting new workstations from parts to employees' desks, and fixing them when something broke.",
+    intro: "Not all my work is code. During my internship I also did the hardware side. I put together new PCs, set them up for the staff, and fixed them when something went wrong.",
     steps: [
-      { title: "Assemble", text: "Built desktop workstations for employee use." },
-      { title: "Upgrade", text: "Installed RAM and SSD upgrades." },
-      { title: "Configure", text: "Reformatted SSDs and installed the software each machine needed." },
-      { title: "Deploy & support", text: "Handled cable management, then diagnosed hardware, software, and OS issues after hand-off." }
+      { title: "Assemble", text: "Put together desktop PCs for the employees." },
+      { title: "Upgrade", text: "Added RAM and SSDs to make them faster." },
+      { title: "Configure", text: "Formatted the drives and installed what each person needed." },
+      { title: "Deploy & support", text: "Set them up at each desk, tidied the cables, and fixed problems after." }
     ]
   },
 
@@ -87,7 +87,7 @@ const DATA = {
       short: "Inventory",
       tag: "Internship · Production",
       title: "Inventory & IT Asset Management System",
-      summary: "Internal PHP/MySQL system for J-K Network Services that centralizes IT asset and administrative data — built solo, end to end.",
+      summary: "A PHP and MySQL system I built alone during my internship at J-K Network Services. It keeps all their IT assets and office records in one place, and they still use it.",
       role: "Solo developer",
       context: "Internship — J-K Network Services",
       year: "2026",
@@ -96,38 +96,38 @@ const DATA = {
       wordmark: "itadmin",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
       logo: "screenshots/inventory/logo.png", logoBg: "#03122b",   // shown on the card and project header
       image: "screenshots/inventory/peripherals.webp",
-      galleryNote: "Disclaimer: all data shown in these screenshots (names, accounts, passwords, IP addresses, and serial keys) is dummy data entered for demonstration. It does not belong to real people and is not real credentials.",
+      galleryNote: "Note: everything in these screenshots (names, accounts, passwords, IP addresses, serial keys) is dummy data I typed in for the demo. None of it is real.",
       gallery: [
-        { src: "screenshots/inventory/login.webp", caption: "IT Admin login" },
-        { src: "screenshots/inventory/peripherals.webp", caption: "Computer Peripherals: deployed-device totals and auto-computed storage stock" },
-        { src: "screenshots/inventory/admin-users.webp", caption: "Admin Users: workstation users grouped by department" },
-        { src: "screenshots/inventory/seat-plan.webp", caption: "Seat Plan Arrangement: workstation layout by department with occupied/vacant counts" },
-        { src: "screenshots/inventory/trend-micro.webp", caption: "Trend Micro Tracker: antivirus license status and expiry, filterable by department" },
-        { src: "screenshots/inventory/purchases.webp", caption: "Computer Purchases: purchase dates and remarks per unit" },
-        { src: "screenshots/inventory/specs.webp", caption: "Computer Specifications: processor, motherboard, BIOS, and RAM per unit, with completed/incomplete counts" },
-        { src: "screenshots/inventory/cleaning.webp", caption: "Computer Cleaning: maintenance checklist per device and part" },
-        { src: "screenshots/inventory/access-cards.webp", caption: "Access Card Tracker: keycards, access levels, and active/returned/vacant status" },
-        { src: "screenshots/inventory/it-logs.webp", caption: "IT Logs Issue Tracker: reported issues by category, priority, resolution, and SLA target" },
-        { src: "screenshots/inventory/internet.webp", caption: "Internet Details: ISP accounts, network monitoring, and configuration records" },
-        { src: "screenshots/inventory/new-page.webp", caption: "New Page: spreadsheet-style custom page with fonts, fills, merge, and dropdowns" },
-        { src: "screenshots/inventory/user-accounts.webp", caption: "User accounts with Super Admin / Sub Admin roles" }
+        { src: "screenshots/inventory/login.webp", caption: "IT Admin login page" },
+        { src: "screenshots/inventory/peripherals.webp", caption: "Computer peripherals, with totals of deployed devices and stock left in storage" },
+        { src: "screenshots/inventory/admin-users.webp", caption: "Workstation users, sorted by department" },
+        { src: "screenshots/inventory/seat-plan.webp", caption: "Seat plan per department, showing which seats are taken or free" },
+        { src: "screenshots/inventory/trend-micro.webp", caption: "Trend Micro tracker for antivirus licenses and when they expire" },
+        { src: "screenshots/inventory/purchases.webp", caption: "When each computer was bought, with remarks" },
+        { src: "screenshots/inventory/specs.webp", caption: "Specs of each unit (processor, motherboard, BIOS, RAM)" },
+        { src: "screenshots/inventory/cleaning.webp", caption: "Cleaning checklist for each device and part" },
+        { src: "screenshots/inventory/access-cards.webp", caption: "Access card tracker, showing who has which keycard" },
+        { src: "screenshots/inventory/it-logs.webp", caption: "IT issue log with priority, status, and SLA" },
+        { src: "screenshots/inventory/internet.webp", caption: "Internet accounts and network details" },
+        { src: "screenshots/inventory/new-page.webp", caption: "Custom page that works like a small spreadsheet" },
+        { src: "screenshots/inventory/user-accounts.webp", caption: "User accounts with Super Admin and Sub Admin roles" }
       ],
       overview: [
-        "J-K Network Services needed one place to keep track of its IT assets and administrative records. During my internship I independently designed and developed an internal Inventory & Asset Management System to centralize that data.",
-        "I owned the whole build: the database architecture, the user interface, the back-end logic, and the data-management functionality."
+        "Before this system, the company kept their IT records in different spreadsheets, so it was hard to find things. During my internship I was asked to build one system to keep everything together.",
+        "I did it alone. I planned the database, wrote the PHP code, and designed the pages. I kept adding modules whenever the IT team needed to track something new."
       ],
       features: [
-        "Designed the MySQL database structure for IT asset and administrative records",
-        "Built the back-end logic in PHP, running on XAMPP",
-        "Created the user interface with HTML and CSS",
-        "Implemented data management functions to support internal IT operations and company record management",
-        "Built tracking modules for computer peripherals, purchases, specs, cleaning schedules, access cards, IT issue logs, and internet providers",
-        "Added summary cards on each module (totals, pending, expiring, vacant) plus department filters, search, and pagination",
-        "Created a seat plan view that maps workstations to departments and counts occupied and vacant seats",
-        "Added Trend Micro license tracking with active, expiring-soon, and expired status",
-        "Set up role-based accounts (Super Admin / Sub Admin) and a change history log"
+        "Planned the MySQL database for all the IT and office records",
+        "Wrote the back end in PHP and ran it on XAMPP",
+        "Made the pages with HTML and CSS",
+        "Built pages to track peripherals, purchases, specs, cleaning, access cards, IT issues, and internet accounts",
+        "Added summary cards on top of each page (totals, pending, expiring, vacant) so you see the numbers right away",
+        "Added department filters, search, and pagination",
+        "Made a seat plan that shows which desks are taken or free",
+        "Tracked Trend Micro licenses so the team knows which ones are about to expire",
+        "Added Super Admin and Sub Admin accounts, plus a log of who changed what"
       ],
-      note: "This is an internal company system, so source code isn't public.",
+      note: "This is an internal company system, so I can't share the code.",
       code: "", demo: ""
     },
     {
@@ -136,13 +136,13 @@ const DATA = {
       short: "MathPlusTBS",
       tag: "Academic · Game",
       title: "MathPlusTBS — Unity Educational Game",
-      summary: "An educational quantitative-math game in Unity and C#, from algebra up to Simplex and Duality. I led development and taught myself Unity from scratch to ship it.",
+      summary: "Our capstone game for practicing math, from algebra up to Simplex and Duality. I led the team and learned Unity from scratch to build it.",
       role: "Team lead",
       context: "Capstone project — TIP",
       year: "",
       cvPoints: [
-        "Led the team and built most of the game myself, with no prior game development experience. I learned Unity during the project.",
-        "Built the gameplay logic, 3D environments, and interactive features, and delivered a finished, playable game."
+        "Led our capstone team and built most of the game. I had never made a game before, so I learned Unity and C# during the project.",
+        "Did the gameplay code, the 3D levels, and the math puzzles, and we finished a playable game."
       ],
       tech: ["Unity", "C#", "Blender"],
       wordmark: "mathplus",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
@@ -150,53 +150,54 @@ const DATA = {
       image: "screenshots/mathplustbs/main-menu.png",
       // In play order. group: splits the screenshots under a heading on the project page
       gallery: [
-        { group: "Getting started", src: "screenshots/mathplustbs/main-menu.png", caption: "Main menu: Start, Library, Tutorial, Help" },
-        { group: "Getting started", src: "screenshots/mathplustbs/level-select.png", caption: "Topic and level select: Basic Algebra and Fractions, with locked levels" },
-        { group: "Getting started", src: "screenshots/mathplustbs/characters.png", caption: "Character select: Warrior, Archer, Mage, Assassin" },
-        { group: "Story intro", src: "screenshots/mathplustbs/intro-classroom.webp", caption: "The story opens in class: \"Another day, another boring topic\"" },
-        { group: "Story intro", src: "screenshots/mathplustbs/intro-overslept.webp", caption: "The student wakes up somewhere unfamiliar" },
+        { group: "Getting started", src: "screenshots/mathplustbs/main-menu.png", caption: "Main menu" },
+        { group: "Getting started", src: "screenshots/mathplustbs/level-select.png", caption: "Picking a topic and level (locked levels open as you play)" },
+        { group: "Getting started", src: "screenshots/mathplustbs/characters.png", caption: "Choosing a character: Warrior, Archer, Mage, or Assassin" },
+        { group: "Story intro", src: "screenshots/mathplustbs/intro-classroom.webp", caption: "The story starts in a boring math class" },
+        { group: "Story intro", src: "screenshots/mathplustbs/intro-overslept.webp", caption: "The student falls asleep and wakes up somewhere else" },
         { group: "Story intro", src: "screenshots/mathplustbs/intro-wizard.webp", caption: "An old wizard offers to help" },
-        { group: "Story intro", src: "screenshots/mathplustbs/npc-welcome.webp", caption: "In the dungeon, an NPC welcomes the player to Basic Algebra" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/perfect-choice.webp", caption: "Answering correctly: \"Perfect Choice!\"" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/enemy.webp", caption: "An enemy lurking in the dark" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/dungeon.webp", caption: "Exploring the torch-lit dungeon with the minimap, timer, HP, and score" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/dungeon-cells.webp", caption: "Locked cells along the dungeon corridor" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/clue-variable.webp", caption: "A math clue at a locked gate: what a variable is" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/lesson-chalkboard.webp", caption: "Chalkboard lessons teach the topic as you explore" },
+        { group: "Story intro", src: "screenshots/mathplustbs/npc-welcome.webp", caption: "An NPC welcomes you to the Basic Algebra dungeon" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/perfect-choice.webp", caption: "Getting an answer right" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/enemy.webp", caption: "An enemy waiting in the dark" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/dungeon.webp", caption: "Walking through the dungeon, with the minimap, timer, HP, and score" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/dungeon-cells.webp", caption: "Locked cells along the hallway" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/clue-variable.webp", caption: "A clue at a locked gate explaining what a variable is" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/lesson-chalkboard.webp", caption: "Chalkboard lessons you find while exploring" },
         { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/clue-pickup.webp", caption: "Picking up a clue scroll" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/puzzle.webp", caption: "A picture puzzle that must be solved to open the gate" },
-        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/gate-unlock.webp", caption: "The gate unlocks once the puzzle is solved" },
-        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle.png", caption: "Turn-based battle: pick a move or a skill" },
-        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle-items.webp", caption: "Using items in battle: strength, health, defense, and skill potions" },
-        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle-victory.webp", caption: "Battle won: bonus points and a gold-coin reward" },
-        { group: "Turn-based battles", src: "screenshots/mathplustbs/level-completed.webp", caption: "Level completed on the magic circle" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/puzzle.webp", caption: "A picture puzzle you solve to open the gate" },
+        { group: "Level 1: the dungeon", src: "screenshots/mathplustbs/gate-unlock.webp", caption: "The gate opens after the puzzle" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle.png", caption: "Battle: pick a move or a skill" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle-items.webp", caption: "Using potions during a battle" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/battle-victory.webp", caption: "Winning a battle and getting gold coins" },
+        { group: "Turn-based battles", src: "screenshots/mathplustbs/level-completed.webp", caption: "Level done" },
         { group: "More worlds", src: "screenshots/mathplustbs/world-grassland.webp", caption: "Grassland world" },
         { group: "More worlds", src: "screenshots/mathplustbs/world-desert.webp", caption: "Desert canyon world" },
-        { group: "More worlds", src: "screenshots/mathplustbs/world-treasure.webp", caption: "Treasure room full of gold coins" },
+        { group: "More worlds", src: "screenshots/mathplustbs/world-treasure.webp", caption: "Treasure room" },
         { group: "More worlds", src: "screenshots/mathplustbs/world-lava.webp", caption: "Lava world" },
-        { group: "More worlds", src: "screenshots/mathplustbs/world-portal.webp", caption: "A portal to the next stage" },
+        { group: "More worlds", src: "screenshots/mathplustbs/world-portal.webp", caption: "Portal to the next stage" },
         { group: "More worlds", src: "screenshots/mathplustbs/final-victory.webp", caption: "Victory screen" },
-        { group: "In-game menus", src: "screenshots/mathplustbs/player-stats.webp", caption: "Player stats: HP, level, power, defense, and equipment" },
-        { group: "In-game menus", src: "screenshots/mathplustbs/inventory.webp", caption: "Inventory: potions and collected clues" },
+        { group: "In-game menus", src: "screenshots/mathplustbs/player-stats.webp", caption: "Player stats and equipment" },
+        { group: "In-game menus", src: "screenshots/mathplustbs/inventory.webp", caption: "Inventory with potions and clues" },
         { group: "In-game menus", src: "screenshots/mathplustbs/pause-menu.webp", caption: "Pause menu" }
       ],
       overview: [
-        "MathPlusTBS is an educational game that makes practicing math interactive. I led the project and developed it despite having no prior game development experience, teaching myself Unity along the way.",
-        "The player is a student who falls asleep in a boring math class and wakes up in a fantasy world. To get through each level, they explore dungeons, collect clues and lessons on the topic, solve puzzles to unlock gates, and fight enemies in turn-based battles.",
-        "The result is a functional application covering gameplay logic, 3D assets, environment design, and interactive features."
+        "MathPlusTBS is the game we made for our capstone. The idea was to make math practice feel less boring by turning it into an adventure.",
+        "You play as a student who falls asleep in math class and wakes up in a fantasy world. To finish each level, you explore, collect clues and short lessons, solve puzzles to open gates, and fight enemies in turn-based battles.",
+        "I was the team lead. None of us had made a game before, so I learned Unity from zero in about 3 to 4 months, wrote most of the code, and taught my groupmates along the way."
       ],
       features: [
-        "Programmed the gameplay logic in C#",
-        "Modeled 3D assets in Blender",
-        "Designed the game environments in Unity: a dungeon, grassland, desert, treasure room, and lava world",
-        "Built the interactive features that tie the math content to gameplay",
-        "Math topics from Basic Algebra and Fractions up to linear programming (Simplex, Two-Phase, and Duality methods), with levels that unlock as you progress",
-        "Story cutscenes and NPC dialogue that introduce each topic",
-        "Clues, chalkboard lessons, and puzzles that unlock gates",
-        "Four playable character classes: Warrior, Archer, Mage, and Assassin",
-        "Turn-based battles with basic moves, skills, and items",
-        "In-game HUD with minimap, timer, HP, level, score, and gold coins, plus touch controls",
-        "Inventory with potions, a player stats screen with equipment, and a pause menu"
+        "Wrote the gameplay code in C#",
+        "Made the 3D models in Blender",
+        "Built the levels in Unity: a dungeon, grassland, desert, treasure room, and lava world",
+        "Connected the math lessons to the gameplay so you learn while you play",
+        "Topics start with Basic Algebra and Fractions and go up to linear programming (Simplex, Two-Phase, and Duality)",
+        "Levels unlock as you go",
+        "Short story scenes and NPC dialogue that introduce each topic",
+        "Clues, chalkboard lessons, and puzzles that open locked gates",
+        "Four characters to choose from: Warrior, Archer, Mage, and Assassin",
+        "Turn-based battles with moves, skills, and items",
+        "Minimap, timer, HP, score, and gold coins on screen, with touch controls",
+        "Inventory, player stats, and a pause menu"
       ],
       note: "",
       code: "", demo: ""
@@ -207,13 +208,13 @@ const DATA = {
       short: "E-Commerce",
       tag: "Academic · Web",
       title: "Web-Based E-Commerce System",
-      summary: "GG-EZ, a full-stack online store for gaming gear with Stripe and PayPal checkout, Google sign-in, an admin panel, and a courier portal.",
+      summary: "GG-EZ, an online store for gaming gear that we built in 3rd year. It has Stripe and PayPal payments, Google sign-in, an admin side, and a page for couriers.",
       role: "Team lead",
       context: "3rd-year project — TIP",
       year: "",
       cvPoints: [
-        "Built a full-stack online store for gaming gear with Stripe and PayPal checkout, Google sign-in (OAuth 2.0), an admin panel, and a courier portal.",
-        "Coordinated tasks, deadlines, and testing for the team, and helped teammates get past coding problems."
+        "Built an online store for gaming gear with PHP and MySQL, with Stripe and PayPal payments, Google sign-in, an admin panel, and a courier portal.",
+        "Led the team. I split the tasks, kept track of deadlines, ran the testing, and helped my groupmates when they got stuck on code."
       ],
       tech: ["PHP", "MySQL", "JavaScript", "Stripe", "PayPal", "Google OAuth", "FPDF"],
       wordmark: "ggez",   // sharp text logo drawn by the site (see WORDMARKS in render.js)
@@ -221,50 +222,48 @@ const DATA = {
       image: "screenshots/ecommerce/home.png",
       // group: splits the screenshots under a heading on the project page
       gallery: [
-        { group: "Customer side", src: "screenshots/ecommerce/home.png", caption: "Home page with a featured products carousel" },
-        { group: "Customer side", src: "screenshots/ecommerce/shop.png", caption: "Shop: product catalog with price and category filters" },
-        { group: "Customer side", src: "screenshots/ecommerce/location.png", caption: "Store location page with an embedded map" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/01-dashboard.webp", caption: "Admin dashboard: store stats, inventory alerts, newest users, and most viewed products" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/02-login.webp", caption: "Admin panel login prompt" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/03-orders.webp", caption: "Placed orders: update payment status and handle cancellation and refund requests" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/04-admin-accounts.webp", caption: "Admin accounts with Super, Order, and Delivery admin roles" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/05-activity-logs.webp", caption: "Activity logs: every admin action with a timestamp, searchable and filterable by admin" },
+        { group: "Customer side", src: "screenshots/ecommerce/home.png", caption: "Home page with featured products" },
+        { group: "Customer side", src: "screenshots/ecommerce/shop.png", caption: "Shop page with price and category filters" },
+        { group: "Customer side", src: "screenshots/ecommerce/location.png", caption: "Store location with a map" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/01-dashboard.webp", caption: "Admin dashboard with sales, low-stock alerts, and new users" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/02-login.webp", caption: "Admin login" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/03-orders.webp", caption: "Orders page, where admins update payments and handle cancel or refund requests" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/04-admin-accounts.webp", caption: "Admin accounts (Super, Order, and Delivery admins)" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/05-activity-logs.webp", caption: "Activity log of what each admin did and when" },
         { group: "Admin side", src: "screenshots/ecommerce/admin/06-user-accounts.webp", caption: "Customer accounts" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/07-promotions.webp", caption: "Promotion builder for image and video campaigns on the homepage" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/08-order-status.webp", caption: "Delivery reports: order status, delivery date, and assigned courier" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/09-courier-login.webp", caption: "Separate login for couriers" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/10-courier-accounts.webp", caption: "Creating and managing courier accounts" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/11-messages.webp", caption: "Customer feedback inbox" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/12-user-comments.webp", caption: "Product comments and ratings from customers" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/13-add-product.webp", caption: "Adding a product with price, category, stock, and three images" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/14-manage-categories.webp", caption: "Products grouped by category, with update and archive actions" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/15-archived-products.webp", caption: "Archived products that can be restored" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/16-product-reports.webp", caption: "Sales reports: sales-over-time chart, sales calendar, and PDF export" },
-        { group: "Admin side", src: "screenshots/ecommerce/admin/17-update-profile.webp", caption: "Admin profile and password update" }
+        { group: "Admin side", src: "screenshots/ecommerce/admin/07-promotions.webp", caption: "Making image and video promos for the home page" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/08-order-status.webp", caption: "Delivery reports with status, date, and courier" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/09-courier-login.webp", caption: "Courier login" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/10-courier-accounts.webp", caption: "Adding and managing couriers" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/11-messages.webp", caption: "Messages from customers" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/12-user-comments.webp", caption: "Product comments and ratings" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/13-add-product.webp", caption: "Adding a new product" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/14-manage-categories.webp", caption: "Products by category, with edit and archive buttons" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/15-archived-products.webp", caption: "Archived products you can bring back" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/16-product-reports.webp", caption: "Sales report with a chart, calendar, and PDF download" },
+        { group: "Admin side", src: "screenshots/ecommerce/admin/17-update-profile.webp", caption: "Updating the admin profile and password" }
       ],
       overview: [
-        "A full-stack e-commerce website for selling gaming gear and peripherals, with three portals: a customer storefront, an admin dashboard, and a courier portal.",
-        "It covers the essentials of an online store: browsable product listings, front-end interfaces, a database behind the catalog, and the core purchasing flow.",
-        "Behind the store is a full admin panel for running the business: managing orders and deliveries, products and categories, promotions, customer messages, and admin accounts with role-based access, with every admin action recorded in an activity log."
+        "GG-EZ is an online store for gaming gear that our team made in 3rd year. It has three parts: the shop for customers, an admin side for running the store, and a separate page for couriers.",
+        "On the customer side you can browse products, add them to your cart or wishlist, pay with Stripe or PayPal, and track your order until it arrives.",
+        "The admin side is where most of the work went. Admins can manage products, orders, deliveries, promos, and messages. Each admin role only sees what it needs, and every action gets saved in a log."
       ],
       features: [
-        "Product listings with categories, search, and quick view",
-        "Front-end interfaces built with HTML, CSS, and JavaScript",
-        "MySQL database integration through a PHP back end",
-        "Online payments through Stripe and PayPal checkout",
-        "Sign in with Google (OAuth 2.0) alongside regular account registration",
-        "Core purchasing functionality: cart, wishlist, saved addresses, and order history",
-        "Order tracking (to ship, to receive, delivered), reorder, and return requests",
-        "Shop page with price-range and category filters",
-        "Admin dashboard with store stats, inventory alerts, newest users, and most viewed products",
-        "Order management: payment status updates and cancellation and refund requests",
-        "Role-based admin accounts (Super Admin, Order Admin, Delivery Admin)",
-        "Activity log that records every admin action with a timestamp",
-        "Delivery management with courier accounts, a separate courier login, and delivery status reports",
-        "Product management: add, update, archive, and restore products by category",
-        "Marketing tools: image and video promotions and discounts",
-        "Customer feedback inbox and product comments",
-        "Sales reports with a sales-over-time chart, a sales calendar, and PDF export (FPDF)"
+        "Customers can browse by category, search, and quick view products",
+        "Payments through Stripe and PayPal",
+        "Sign in with Google, or make a normal account",
+        "Cart, wishlist, saved addresses, and order history",
+        "Order tracking (to ship, to receive, delivered), plus reorder and returns",
+        "Shop filters for price and category",
+        "Admin dashboard with sales, low-stock alerts, new users, and most viewed products",
+        "Admins can update payment status and handle cancel and refund requests",
+        "Three admin roles: Super Admin, Order Admin, and Delivery Admin",
+        "Activity log that saves every admin action with the time",
+        "Courier accounts with their own login and delivery reports",
+        "Add, edit, archive, and restore products",
+        "Image and video promos and discounts",
+        "Customer messages and product comments",
+        "Sales reports with a chart, a calendar, and PDF export"
       ],
       note: "",
       code: "https://github.com/rendell-11/ggezports", demo: ""
@@ -285,50 +284,50 @@ const DATA = {
       short: "Workout Tracker",
       tag: "Personal · Mobile",
       title: "Workout Tracker — Flutter Fitness App",
-      summary: "An Android app for planning a weekly training split, logging workouts set by set, tracking progress, and hitting daily nutrition targets.",
-      why: "I wanted one app that fits the way I actually train, and a reason to learn Flutter.",
+      summary: "An Android app I made for my own workouts. I can plan my week, log every set, see my progress, and track what I eat.",
+      why: "I kept forgetting my weights and reps, and I wanted an excuse to learn Flutter.",
       role: "Solo developer & designer",
       context: "Personal project",
       year: "2026",
       cvPoints: [
-        "Designed in Figma and built an Android app for planning a weekly training split, logging workouts set by set, tracking progress with charts, and hitting daily nutrition targets."
+        "Designed in Figma and built in Flutter. It's an Android app for planning workouts, logging each set, checking progress with charts, and tracking calories and protein."
       ],
       tech: ["Flutter", "Dart", "Material 3", "fl_chart", "Figma"],
       phones: ["screenshots/workout-tracker/02_planner.webp", "screenshots/workout-tracker/01_splash.webp", "screenshots/workout-tracker/04_progress.webp"],
       gallery: [
-        { src: "screenshots/workout-tracker/01_splash.webp", caption: "Animated splash screen" },
-        { src: "screenshots/workout-tracker/02_planner.webp", caption: "Weekly planner: today's plan, weekly goal, streak, and calendar" },
-        { src: "screenshots/workout-tracker/03_week.webp", caption: "The week at a glance, with muscle-group icons for each day" },
-        { src: "screenshots/workout-tracker/06_split.webp", caption: "Choosing a muscle-group split for the day" },
-        { src: "screenshots/workout-tracker/08_day_plan.webp", caption: "Adding exercises to each section of the day" },
-        { src: "screenshots/workout-tracker/09_exercises.webp", caption: "Exercise picker, filterable by equipment" },
-        { src: "screenshots/workout-tracker/04_progress.webp", caption: "Progress: totals, workouts per week, and heaviest set per exercise" },
-        { src: "screenshots/workout-tracker/05_food.webp", caption: "Food tracker against daily calorie and macro targets" },
-        { src: "screenshots/workout-tracker/07_food_day.webp", caption: "Logging breakfast, lunch, dinner, and snacks" },
-        { src: "screenshots/workout-tracker/10_daily_guide.webp", caption: "Daily guide: how the targets are calculated, step by step" },
-        { src: "screenshots/workout-tracker/11_profile.webp", caption: "Edit profile: body stats, activity level, and goals" },
-        { src: "screenshots/workout-tracker/12_bmi.webp", caption: "Live BMI readout that updates as you edit" }
+        { src: "screenshots/workout-tracker/01_splash.webp", caption: "Splash screen" },
+        { src: "screenshots/workout-tracker/02_planner.webp", caption: "Planner with today's workout, weekly goal, and streak" },
+        { src: "screenshots/workout-tracker/03_week.webp", caption: "The whole week, with an icon for each muscle group" },
+        { src: "screenshots/workout-tracker/06_split.webp", caption: "Choosing which muscles to train that day" },
+        { src: "screenshots/workout-tracker/08_day_plan.webp", caption: "Adding exercises to the day" },
+        { src: "screenshots/workout-tracker/09_exercises.webp", caption: "Exercise list you can filter by equipment" },
+        { src: "screenshots/workout-tracker/04_progress.webp", caption: "Progress page with workouts per week and heaviest lifts" },
+        { src: "screenshots/workout-tracker/05_food.webp", caption: "Food tracker with calorie and macro goals" },
+        { src: "screenshots/workout-tracker/07_food_day.webp", caption: "Logging meals for the day" },
+        { src: "screenshots/workout-tracker/10_daily_guide.webp", caption: "Guide that shows how the targets are computed" },
+        { src: "screenshots/workout-tracker/11_profile.webp", caption: "Profile with body stats and goals" },
+        { src: "screenshots/workout-tracker/12_bmi.webp", caption: "BMI that updates while you type" }
       ],
       motivation: [
-        "I exercise regularly, but I kept forgetting where I was: how many reps I usually do for each exercise, how heavy the weights were, and what order I did them in. My workouts felt unorganized. I also had trouble tracking my calories and protein, which made it harder to stick to my fitness goals.",
-        "Instead of trying another workout app, I decided to make my own. I wanted one that matches the way I actually train: plan my weekly schedule, record each set, track the weight and reps, keep an eye on what I eat, and see whether I'm improving over time.",
-        "It was also a way to keep improving my coding skills after graduation. I designed every screen in Figma first, then learned Flutter and Dart to turn the design into a working app."
+        "I work out regularly, but I always forgot the details. How many reps did I do last time? How heavy was it? What order did I do the exercises in? My workouts ended up messy. I also had a hard time keeping track of my calories and protein.",
+        "Instead of looking for another app, I decided to make my own that fits how I train. I wanted to plan my week, write down each set, see the weight and reps, track my food, and check if I'm actually getting stronger.",
+        "It was also a way to keep coding after graduation. I designed all the screens in Figma first, then learned Flutter and Dart to build it."
       ],
       overview: [
-        "Workout Tracker is a Flutter app for planning a weekly training split, logging workouts set by set, tracking progress over time, and keeping a food log.",
-        "Everything is saved on the device, and a demo mode fills the app with eight weeks of sample workouts so anyone can explore it right away."
+        "Workout Tracker is a Flutter app where I plan my weekly workouts, log each set, check my progress, and keep a food log.",
+        "Everything is saved on the phone. There's also a demo mode that fills the app with 8 weeks of sample workouts, so you can try it right away without typing anything."
       ],
       features: [
-        "Weekly planner: pick a split for each day, with custom-painted icons for each muscle group",
-        "Exercise library with 50+ exercises, equipment, form cues, and target muscles",
-        "Set-by-set workout logging, prefilled with the numbers from your last session",
-        "Workout summary with duration, volume, estimated calories, and personal records",
-        "Progress charts for workouts per week and heaviest set per exercise",
-        "Daily calorie and macro targets using the Mifflin-St Jeor equation, with safety limits and sources",
-        "Food tracker, profile, and live BMI readout",
-        "State managed with a ChangeNotifier; data stored with shared_preferences and JSON serialization"
+        "Weekly planner where you pick which muscles to train each day, with icons I drew in code",
+        "More than 50 exercises, each with equipment, form tips, and target muscles",
+        "Logging each set, already filled in with your numbers from last time",
+        "Summary after each workout with time, total volume, calories, and new personal records",
+        "Charts for workouts per week and heaviest set per exercise",
+        "Daily calorie and macro targets using the Mifflin-St Jeor formula, with safe limits",
+        "Food tracker, profile page, and BMI",
+        "Used ChangeNotifier for state, and saved data with shared_preferences and JSON"
       ],
-      note: "Android only. Open the app and tap \"Try it with demo data\" to explore with sample workouts.",
+      note: "Android only. Open the app and tap \"Try it with demo data\" to look around with sample workouts.",
       code: "https://github.com/rendell-11/workout-tracker",
       demo: "https://github.com/rendell-11/workout-tracker/releases/latest", demoLabel: "Download APK"
     },
@@ -338,45 +337,45 @@ const DATA = {
       short: "VoiceNote",
       tag: "Personal · Mobile",
       title: "VoiceNote — Voice-First Notes App",
-      summary: "A React Native notes app where you speak your thoughts and an optional Claude-powered assistant summarizes them, suggests a title, and pulls out the to-dos.",
-      why: "To explore TypeScript, React Native, and Expo, and get comfortable with tools outside my usual stack.",
+      summary: "A notes app where you talk instead of type. If you want, an AI helper (Claude) can summarize the note, suggest a title, and list the to-dos.",
+      why: "I wanted to learn TypeScript and React Native, since I mostly use PHP.",
       role: "Solo developer",
       context: "Personal project",
       year: "2026",
       cvPoints: [
-        "Built a mobile notes app where users speak their thoughts and an optional AI assistant (Claude API) summarizes them, suggests a title, and pulls out to-dos.",
-        "Built it to learn TypeScript, React Native, and Expo outside my usual PHP stack, with unit tests in Jest."
+        "Built a notes app in React Native where you speak your notes. An optional AI helper using the Claude API summarizes them, suggests a title, and pulls out to-dos.",
+        "Made it to learn TypeScript, React Native, and Expo, and wrote unit tests with Jest."
       ],
       tech: ["React Native", "Expo", "TypeScript", "Node.js", "Claude API", "Jest"],
       wordmark: "voicenote",
       logo: "screenshots/voicenote/icon.png", logoBg: "#f5f3ea",
       phones: ["screenshots/voicenote/02_home.webp", "screenshots/voicenote/01_splash.webp", "screenshots/voicenote/05_dictating.webp"],
       gallery: [
-        { src: "screenshots/voicenote/01_splash.webp", caption: "Animated splash screen: \"Say it. Save it.\"" },
-        { src: "screenshots/voicenote/02_home.webp", caption: "Notes list with search (by typing or voice) and pinned notes" },
-        { src: "screenshots/voicenote/03_home_dark.webp", caption: "Dark mode, switched from the top-right toggle" },
-        { src: "screenshots/voicenote/04_editor.webp", caption: "Note editor with word count, share, and tap-to-dictate" },
-        { src: "screenshots/voicenote/05_dictating.webp", caption: "Dictating: live recording timer and waveform" },
-        { src: "screenshots/voicenote/06_formatting.webp", caption: "Formatting toolbar: headings, bold, italic, bullet lists, and checklists" }
+        { src: "screenshots/voicenote/01_splash.webp", caption: "Splash screen: \"Say it. Save it.\"" },
+        { src: "screenshots/voicenote/02_home.webp", caption: "Notes list with search and pinned notes" },
+        { src: "screenshots/voicenote/03_home_dark.webp", caption: "Dark mode" },
+        { src: "screenshots/voicenote/04_editor.webp", caption: "Writing a note, with a button to start talking" },
+        { src: "screenshots/voicenote/05_dictating.webp", caption: "Recording, with a timer and a sound wave" },
+        { src: "screenshots/voicenote/06_formatting.webp", caption: "Formatting: headings, bold, italic, lists, and checklists" }
       ],
       motivation: [
-        "VoiceNote was a learning project. Most of my work is in PHP and MySQL, so I built this to explore TypeScript with React Native and Expo, add another skill, and get familiar with other programming languages and tools.",
-        "Picking a voice-first notes app gave me real problems to solve along the way: native speech recognition, structured AI output, and a data layer that can be tested."
+        "This was a learning project. Most of what I've built is in PHP and MySQL, so I wanted to try something different: TypeScript, React Native, and Expo.",
+        "I picked a voice notes app because it gave me real things to figure out, like using the phone's speech recognition, getting clean answers back from the AI, and writing code I could test."
       ],
       overview: [
-        "VoiceNote is a voice-first notes app for Android and iOS. You dictate straight into a note, and the text is inserted at the cursor, so you can mix typing and speaking.",
-        "An optional AI assistant, powered by Claude, gives a one-sentence summary, a suggested title, a to-do list, and a cleaned-up version of dictated text, each applied with one tap. Notes are stored on the device, so everything except AI works offline."
+        "VoiceNote is a notes app for Android and iOS where you can talk instead of type. Whatever you say goes in where your cursor is, so you can mix typing and talking in the same note.",
+        "There's an optional AI helper using Claude. It can give a one-line summary, suggest a title, make a to-do list, or clean up what you dictated, and you apply each one with a tap. Notes are saved on the phone, so it works offline except for the AI part."
       ],
       features: [
-        "Voice typing with live results through the phone's speech recognizer (expo-speech-recognition)",
-        "Voice commands like \"new paragraph\", a dictation language switch, and voice search",
-        "Rich-text formatting: H1–H3 headings, bold, italic, bullet lists, and checklists",
-        "AI insights from Claude, validated against a Zod schema so the UI never parses free text",
-        "Pin, search, and multi-select delete with Undo",
-        "Share any note through the system share sheet",
-        "Dark mode that follows the phone or is set manually, and a screen-reader label on every control",
-        "Typed data layer over AsyncStorage, with notes addressed by stable ids and automatic migration",
-        "Unit tests with Jest and a GitHub Actions pipeline for lint, type-check, and tests"
+        "Talk to type, using the phone's own speech recognition",
+        "Voice commands like \"new paragraph\", a language switch, and voice search",
+        "Headings, bold, italic, bullet lists, and checklists",
+        "AI summaries from Claude, checked with a Zod schema so bad answers don't break the app",
+        "Pin notes, search, and delete many at once with Undo",
+        "Share any note to other apps",
+        "Dark mode, and screen reader labels on every button",
+        "Notes saved with AsyncStorage, with typed code around it",
+        "Unit tests with Jest, and GitHub Actions to run lint, type checks, and tests"
       ],
       note: "",
       code: "", demo: ""
@@ -389,11 +388,11 @@ const DATA = {
       org: "J-K Network Services",
       date: "Jan 2026 – Apr 2026",
       points: [
-        "Built the company's internal inventory and IT asset management system on my own. I designed the MySQL database, wrote the PHP back end, and built the HTML/CSS interface. The system is still in use.",
-        "The system centralizes IT asset and administrative records that were previously scattered across spreadsheets.",
-        "Assembled, configured, and deployed 19 desktop workstations, including RAM/SSD upgrades, SSD reformatting, software installs, and cable management.",
-        "Provided daily IT support to employees, fixing hardware faults, software errors, OS problems, and slow machines.",
-        "Wrote technical documentation and designed print and digital materials for the company."
+        "Built the company's inventory and IT asset system by myself. I made the MySQL database, the PHP back end, and the HTML/CSS pages. They still use it.",
+        "Before this, their IT records were spread across different spreadsheets. Now everything is in one place.",
+        "Built and set up 19 desktop PCs. That included adding RAM and SSDs, formatting drives, installing software, and fixing the cables.",
+        "Helped employees every day with IT problems, like broken hardware, software errors, OS issues, and slow computers.",
+        "Wrote documentation and made some print and online materials for the company."
       ]
     },
     {
@@ -401,9 +400,9 @@ const DATA = {
       org: "Alpha Iota — Malaysia (Remote)",
       date: "Sep 2021 – Mar 2022",
       points: [
-        "Handled data entry and record management for about 150 accounts per day for a remote client, working inside a secure virtual machine environment.",
-        "Followed strict data-handling and security procedures to keep client information accurate and protected.",
-        "Regularly finished my daily batch ahead of schedule and took on extra work to increase output."
+        "Did data entry and kept records for around 150 accounts a day for a client abroad, working inside a secure virtual machine.",
+        "Followed the client's rules for handling data so their information stayed accurate and safe.",
+        "Usually finished my daily work early, so I took extra tasks."
       ]
     }
   ],
