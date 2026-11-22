@@ -204,7 +204,7 @@ function renderHome() {
     <div class="section-head">
       <div>
         ${sectionTitle("04", `The <span class="hl">résumé</span>`)}
-        <p class="section-sub" data-reveal>Experience, skills, and education at a glance, plus my cover letter.</p>
+        <p class="section-sub" data-reveal>A quick look at my experience, skills, and education, plus my cover letter.</p>
       </div>
       <div class="cta" data-reveal>
         <a class="btn primary" href="#/cv">View as CV →</a>
@@ -254,37 +254,53 @@ function renderHome() {
    styled like a printed page. "Print / Save as PDF" uses css/cv.css's print rules. */
 const bare = href => url(href).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-const cvEntry = e => `
-  <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h4>${esc(e.title)}</h4>
-      ${e.date ? `<span class="cv-date">${esc(e.date)}</span>` : ""}
-    </div>
-    <div class="cv-org">${esc(e.org)}</div>
-    ${e.points.length ? `<ul>${e.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>` : ""}
-  </div>`;
+const cvList = items => items && items.length ? `<ul>${items.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : "";
+// "Alpha Iota — Malaysia (Remote)" → ["Alpha Iota", "Malaysia (Remote)"]
+const cvSplit = s => String(s || "").split(" — ");
 
+// Experience: organization + place on line 1, job title + dates on line 2
+const cvJob = e => {
+  const [org, place] = cvSplit(e.org);
+  return `
+  <div class="cv-entry">
+    <div class="cv-row"><h4>${esc(org)}</h4><span>${esc(place || "")}</span></div>
+    <div class="cv-row cv-sub"><span>${esc(e.title)}</span><span>${esc(e.date || "")}</span></div>
+    ${cvList(e.cvPoints || e.points)}
+  </div>`;
+};
+
+// Education: school + place on line 1, degree + date on line 2
+const cvSchool = e => {
+  const [school, place] = cvSplit(e.org);
+  return `
+  <div class="cv-entry">
+    <div class="cv-row"><h4>${esc(school)}</h4><span>${esc(place || "")}</span></div>
+    <div class="cv-row cv-sub"><span>${esc(e.title)}</span><span>${esc(e.date || "")}</span></div>
+    ${cvList(e.points)}
+  </div>`;
+};
+
+// Projects: "Name | stack" + year on line 1, role and context on line 2
 const cvProject = p => `
   <div class="cv-entry">
-    <div class="cv-entry-head">
-      <h4><a href="${esc(DATA.website)}#/projects/${p.slug}">${esc(p.title)}</a></h4>
-      ${p.year ? `<span class="cv-date">${esc(p.year)}</span>` : ""}
+    <div class="cv-row">
+      <h4><a href="${esc(DATA.website)}#/projects/${p.slug}">${esc(p.cvName || p.short)}</a> <span class="cv-stack">${esc((p.cvStack || p.tech).join(" · "))}</span></h4>
+      <span>${esc(p.year || "")}</span>
     </div>
-    <div class="cv-org">${esc([p.role, p.context].filter(Boolean).join(" · "))}</div>
-    ${p.cvPoints ? `<ul>${p.cvPoints.map(t => `<li>${esc(t)}</li>`).join("")}</ul>` : `<p>${esc(p.summary)}</p>`}
-    <p class="cv-tech">${esc(p.tech.join(" · "))}</p>
+    <div class="cv-sub">${esc([p.role, cvSplit(p.context)[0]].filter(Boolean).join(", "))}</div>
+    ${p.cvPoints ? cvList(p.cvPoints) : `<p>${esc(p.summary)}</p>`}
   </div>`;
 
 function renderCV() {
   document.title = `CV — ${DATA.name}`;
   const contacts = [
-    ["Email", DATA.email, `mailto:${DATA.email}`],
-    ["Phone", DATA.phone, DATA.phone && `tel:+63${DATA.phone.replace(/\D/g, "").replace(/^0/, "")}`],
-    ["Location", DATA.location],
-    ["LinkedIn", bare(DATA.linkedin), DATA.linkedin],
-    ["GitHub", bare(DATA.github), DATA.github],
-    ["Portfolio", bare(DATA.website), DATA.website]
-  ].filter(([, v]) => v);
+    [DATA.location],
+    [DATA.phone, DATA.phone && `tel:+63${DATA.phone.replace(/\D/g, "").replace(/^0/, "")}`],
+    [DATA.email, `mailto:${DATA.email}`],
+    [bare(DATA.linkedin), DATA.linkedin],
+    [bare(DATA.github), DATA.github],
+    [bare(DATA.website), DATA.website]
+  ].filter(([v]) => v);
 
   app.innerHTML = `
   <div class="cv-page">
@@ -298,45 +314,44 @@ function renderCV() {
 
     <article class="cv-paper" aria-label="Curriculum vitae">
       <header class="cv-header">
-        <img class="cv-photo" src="${esc(DATA.photo)}" alt="Portrait of ${esc(DATA.name)}">
-        <div>
+        ${DATA.photo ? `<img class="cv-photo" src="${esc(DATA.photo)}" alt="Photo of ${esc(DATA.name)}">` : ""}
+        <div class="cv-id">
           <h1>${esc(DATA.name)}</h1>
           <p class="cv-role">${esc(DATA.role)}</p>
-          <ul class="cv-contact">${contacts.map(([k, v, href]) => `
-            <li><span>${k}</span>${href ? `<a ${/^(mailto|tel):/.test(href) ?`href="${esc(href)}"` : ext(href)}>${esc(v)}</a>` : esc(v)}</li>`).join("")}
-          </ul>
+          ${[contacts.slice(0, 3), contacts.slice(3)].filter(line => line.length).map(line => `
+          <ul class="cv-contact">${line.map(([v, href]) => `
+            <li>${href ? `<a ${/^(mailto|tel):/.test(href) ? `href="${esc(href)}"` : ext(href)}>${esc(v)}</a>` : esc(v)}</li>`).join("")}
+          </ul>`).join("")}
         </div>
       </header>
 
-      <section class="cv-section cv-profile">
-        <h3>Profile</h3>
-        ${DATA.about.map(p => `<p>${esc(p)}</p>`).join("")}
+      ${DATA.cvSummary ? `
+      <section class="cv-section">
+        <h3>Summary</h3>
+        <p class="cv-summary">${esc(DATA.cvSummary)}</p>
+      </section>` : ""}
+
+      <section class="cv-section">
+        <h3>Education</h3>
+        ${DATA.education.map(cvSchool).join("")}
       </section>
 
-      <div class="cv-cols">
-        <div class="cv-main">
-          <section class="cv-section">
-            <h3>Experience</h3>
-            ${DATA.experience.map(cvEntry).join("")}
-          </section>
-          <section class="cv-section">
-            <h3>Projects</h3>
-            ${[...DATA.projects, ...DATA.personalProjects].filter(p => p.onCV !== false).map(cvProject).join("")}
-          </section>
-        </div>
+      <section class="cv-section">
+        <h3>Experience</h3>
+        ${DATA.experience.map(cvJob).join("")}
+      </section>
 
-        <aside class="cv-side">
-          <section class="cv-section">
-            <h3>Education</h3>
-            ${DATA.education.map(cvEntry).join("")}
-          </section>
-          <section class="cv-section">
-            <h3>Skills</h3>
-            ${Object.entries(DATA.skills).map(([group, items]) => `
-              <div class="cv-skill"><h4>${esc(group)}</h4><p>${items.map(esc).join(" · ")}</p></div>`).join("")}
-          </section>
-        </aside>
-      </div>
+      <section class="cv-section">
+        <h3>Projects</h3>
+        ${[...DATA.projects, ...DATA.personalProjects].filter(p => p.onCV !== false).map(cvProject).join("")}
+      </section>
+
+      <section class="cv-section">
+        <h3>Technical Skills</h3>
+        <ul class="cv-skills">${Object.entries(DATA.cvSkills || DATA.skills).map(([group, items]) => `
+          <li><b>${esc(group)}:</b> ${items.map(esc).join(", ")}</li>`).join("")}
+        </ul>
+      </section>
     </article>
   </div>`;
 }
