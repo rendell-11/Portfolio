@@ -52,6 +52,21 @@ const DATA = {
     ]
   },
 
+  // "How this site is made" section on the home page
+  siteInfo: {
+    intro: "This portfolio is a website made from scratch with plain HTML, CSS, and JavaScript. It doesn't use a framework like React, and it doesn't need any build step or install. You can open index.html and it just works.",
+    madeWith: ["HTML", "CSS", "JavaScript", "Google Fonts", "Git", "GitHub Pages"],
+    repo: "https://github.com/rendell-11/Portfolio",
+    parts: [
+      { title: "One file for all the content", text: "All the text, projects, and screenshots come from one file, data.js. To add a project or change a line, I only edit that file, and every page updates." },
+      { title: "Pages without reloading", text: "When you click a project, the address changes (like #/projects/ecommerce) and JavaScript draws that page right away. Smooth page transitions use the View Transitions API, with a simple fallback for browsers that don't have it." },
+      { title: "The moving background", text: "The dots and lines at the top are drawn on an HTML canvas. They react to your mouse, and they stop drawing when you scroll away so they don't waste battery." },
+      { title: "Light and dark mode", text: "The ◐ button switches the theme. All the colors are CSS variables, and your choice is saved in your browser, so it stays the same next time you visit." },
+      { title: "CV made from the same data", text: "The CV page uses the same data.js, so it never gets out of date. Print styles turn it into a one-page A4 PDF with the Print / Save as PDF button." },
+      { title: "Hosted for free", text: "The site is hosted on GitHub Pages. When I push changes to GitHub, the live site updates in about a minute. Animations also turn off if your device is set to reduce motion." }
+    ]
+  },
+
   // CV page only (#/cv): short summary and skill lines in a standard résumé format
   cvSummary: "IT graduate (TIP Quezon City, 2026) with internship experience in PHP/MySQL web development and IT support. Built an inventory and asset management system that replaced 13–15 spreadsheets and is still used by the IT department of J-K Network Services.",
   cvSkills: {

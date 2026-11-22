@@ -234,9 +234,27 @@ function renderHome() {
     </div>
   </section>
 
+  ${DATA.siteInfo ? `
+  <section id="about-site">
+    <div class="section-head">
+      <div>
+        ${sectionTitle("05", `How this site <span class="hl">is made</span>`)}
+        <p class="section-sub" data-reveal>${esc(DATA.siteInfo.intro)}</p>
+      </div>
+      ${DATA.siteInfo.repo ? `<div class="cta" data-reveal><a class="btn" ${ext(DATA.siteInfo.repo)}>View the code ↗</a></div>` : ""}
+    </div>
+    <div class="site-made" data-reveal>
+      <h4 class="col-title">Made with</h4>
+      <div class="chips">${DATA.siteInfo.madeWith.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+    </div>
+    <ol class="site-parts">${DATA.siteInfo.parts.map((pt, i) => `
+      <li data-reveal style="--d:${(i % 3) * .08}"><h5>${esc(pt.title)}</h5><p>${esc(pt.text)}</p></li>`).join("")}
+    </ol>
+  </section>` : ""}
+
   <section class="contact" id="contact">
     <div class="contact-card" data-reveal>
-      <div class="eyebrow">05 — contact</div>
+      <div class="eyebrow">${DATA.siteInfo ? "06" : "05"} — contact</div>
       <h3>Hiring a junior <span class="hl">developer?</span></h3>
       <p>I'm looking for my first full-time role in web development or IT. If you think I'd be a good fit, or just have a question about my work, send me an email.</p>
       <div class="cta">
